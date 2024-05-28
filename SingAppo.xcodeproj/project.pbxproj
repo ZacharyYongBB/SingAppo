@@ -28,6 +28,9 @@
 		B6E198722C0649E100444790 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198712C0649E100444790 /* HomeViewModel.swift */; };
 		B6E198782C064D1400444790 /* BluetoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198772C064D1400444790 /* BluetoothView.swift */; };
 		B6E1987B2C064D3100444790 /* BluetoothViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1987A2C064D3100444790 /* BluetoothViewModel.swift */; };
+		B6E1987D2C06579200444790 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1987C2C06579200444790 /* SettingsView.swift */; };
+		B6E1987F2C0657A200444790 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1987E2C0657A200444790 /* SettingsViewModel.swift */; };
+		B6E198812C065B8600444790 /* ButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198802C065B8600444790 /* ButtonViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +52,9 @@
 		B6E198712C0649E100444790 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B6E198772C064D1400444790 /* BluetoothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothView.swift; sourceTree = "<group>"; };
 		B6E1987A2C064D3100444790 /* BluetoothViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothViewModel.swift; sourceTree = "<group>"; };
+		B6E1987C2C06579200444790 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B6E1987E2C0657A200444790 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		B6E198802C065B8600444790 /* ButtonViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +178,7 @@
 		B6E198612C0611AB00444790 /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
+				B6E198802C065B8600444790 /* ButtonViewModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -231,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				B6E1986F2C0649CA00444790 /* HomeView.swift */,
+				B6E1987C2C06579200444790 /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -239,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				B6E198712C0649E100444790 /* HomeViewModel.swift */,
+				B6E1987E2C0657A200444790 /* SettingsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -335,11 +344,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6E1987D2C06579200444790 /* SettingsView.swift in Sources */,
 				B6E1986D2C0616B700444790 /* SgPoolsViewModel.swift in Sources */,
 				B6E1985E2C060E0D00444790 /* NetworkConnectionManager.swift in Sources */,
 				B6E198502C06092E00444790 /* ImageLoaderView.swift in Sources */,
 				B6E198692C06144F00444790 /* SgPoolsView.swift in Sources */,
 				B6E1985B2C060CFB00444790 /* RootView.swift in Sources */,
+				B6E198812C065B8600444790 /* ButtonViewModifier.swift in Sources */,
 				B6E198702C0649CA00444790 /* HomeView.swift in Sources */,
 				B6E198342C0607FF00444790 /* SingAppoApp.swift in Sources */,
 				B6E198722C0649E100444790 /* HomeViewModel.swift in Sources */,
@@ -349,6 +360,7 @@
 				B6E1987B2C064D3100444790 /* BluetoothViewModel.swift in Sources */,
 				B6E198632C0611DF00444790 /* KeychainManager.swift in Sources */,
 				B6E198782C064D1400444790 /* BluetoothView.swift in Sources */,
+				B6E1987F2C0657A200444790 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

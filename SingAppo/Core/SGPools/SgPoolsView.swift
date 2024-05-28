@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftfulRouting
+import SwiftfulUI
 
 struct SgPoolsView: View {
     
@@ -16,51 +17,57 @@ struct SgPoolsView: View {
     @State private var fourDNumbers: String?
     
     var body: some View {
-        VStack {
+        ScrollView {
             Text("Toto Numbers")
-            Button("generate ordinary entry") {
-                totoNumbers = vm.generateToto(system: 6)
-            }
-            Button("generate system 7") {
-                totoNumbers = vm.generateToto(system: 7)
-            }
-            Button("generate system 8") {
-                totoNumbers = vm.generateToto(system: 8)
-            }
-            Button("generate system 9") {
-                totoNumbers = vm.generateToto(system: 9)
-            }
-            Button("generate system 10") {
-                totoNumbers = vm.generateToto(system: 10)
-            }
-            Button("generate system 11") {
-                totoNumbers = vm.generateToto(system: 11)
-            }
-            Button("generate system 12") {
-                totoNumbers = vm.generateToto(system: 12)
+            ForEach(6...12, id: \.self) { system in
+                Button(action: {
+                    totoNumbers = vm.generateToto(system: system)
+                }) {
+                    Text("Generate System \(system)")
+                        .primaryButton()
+                }
             }
             
             
             if let totoNumbers = totoNumbers {
-                HStack {
-                    ForEach(totoNumbers, id: \.self) { totoNo in
-                        Text(String(totoNo))
+                NonLazyVGrid(
+                    columns: 6,
+                    alignment: .center,
+                    spacing: 16,
+                    items: totoNumbers
+                ) { number in
+                    if let number {
+                        Text(String(number))
+                            .font(.headline)
+                            .padding(5)
+                            .background(Color.yellow)
+                            .cornerRadius(8)
                     }
                 }
+                .padding()
             }
             
             Spacer()
             
             Text("4d Numbers")
-            Button("generate 4D numbers") {
+            Button(action: {
                 fourDNumbers = vm.generate4D()
-            }
+                
+            }, label: {
+                Text("Generate 4D")
+                    .primaryButton()
+            })
             if let fourDNumbers = fourDNumbers {
                 Text(fourDNumbers)
+                    .font(.title)
+                    .padding()
+                    .background(Color.yellow)
+                    .cornerRadius(8)
             }
             Spacer()
             
         }
+        .padding()
         .navigationTitle("SG Pools")
     }
 }
