@@ -26,6 +26,8 @@
 		B6E1986D2C0616B700444790 /* SgPoolsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1986C2C0616B700444790 /* SgPoolsViewModel.swift */; };
 		B6E198702C0649CA00444790 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1986F2C0649CA00444790 /* HomeView.swift */; };
 		B6E198722C0649E100444790 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198712C0649E100444790 /* HomeViewModel.swift */; };
+		B6E198782C064D1400444790 /* BluetoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198772C064D1400444790 /* BluetoothView.swift */; };
+		B6E1987B2C064D3100444790 /* BluetoothViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1987A2C064D3100444790 /* BluetoothViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		B6E1986C2C0616B700444790 /* SgPoolsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SgPoolsViewModel.swift; sourceTree = "<group>"; };
 		B6E1986F2C0649CA00444790 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B6E198712C0649E100444790 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B6E198772C064D1400444790 /* BluetoothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothView.swift; sourceTree = "<group>"; };
+		B6E1987A2C064D3100444790 /* BluetoothViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,7 @@
 		B6E198582C060CC900444790 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B6E198732C064CDC00444790 /* Bluetooth */,
 				B6E1986E2C0649B900444790 /* Home */,
 				B6E198672C06142900444790 /* SGPools */,
 				B6E198612C0611AB00444790 /* ViewModifiers */,
@@ -199,10 +204,51 @@
 		B6E1986E2C0649B900444790 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B6E1986F2C0649CA00444790 /* HomeView.swift */,
-				B6E198712C0649E100444790 /* HomeViewModel.swift */,
+				B6E198762C064CFE00444790 /* ViewModel */,
+				B6E198752C064CF400444790 /* View */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		B6E198732C064CDC00444790 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				B6E198792C064D1C00444790 /* ViewModel */,
+				B6E198742C064CE800444790 /* View */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		B6E198742C064CE800444790 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B6E198772C064D1400444790 /* BluetoothView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B6E198752C064CF400444790 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B6E1986F2C0649CA00444790 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B6E198762C064CFE00444790 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B6E198712C0649E100444790 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B6E198792C064D1C00444790 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B6E1987A2C064D3100444790 /* BluetoothViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,7 +346,9 @@
 				B6E198552C060C6E00444790 /* ErrorMessages.swift in Sources */,
 				B6E198522C06098E00444790 /* Constants.swift in Sources */,
 				B6E198602C060E1900444790 /* NetworkStatus.swift in Sources */,
+				B6E1987B2C064D3100444790 /* BluetoothViewModel.swift in Sources */,
 				B6E198632C0611DF00444790 /* KeychainManager.swift in Sources */,
+				B6E198782C064D1400444790 /* BluetoothView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +483,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow bluetooth use";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Discovering bluetooth peripherals";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -475,6 +525,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow bluetooth use";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Discovering bluetooth peripherals";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
