@@ -1,0 +1,60 @@
+{
+  "originHash" : "bb69c0c64bfa426b3d739856e493e73c86d4ead165705317a30266d4ea43aee0",
+  "pins" : [
+    {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios.git",
+      "state" : {
+        "revision" : "769b88d83a42ca8d5572b020c96f47e3690b3796",
+        "version" : "4.4.3"
+      }
+    },
+    {
+      "identity" : "sdwebimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImage.git",
+      "state" : {
+        "revision" : "5642d1ffe3dbe628592443bd14154e31929727b4",
+        "version" : "5.19.2"
+      }
+    },
+    {
+      "identity" : "sdwebimageswiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImageSwiftUI.git",
+      "state" : {
+        "revision" : "b7af5e6bd9c2987e41730400d1baad13d74a141a",
+        "version" : "3.0.4"
+      }
+    },
+    {
+      "identity" : "swiftfulrecursiveui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftfulThinking/SwiftfulRecursiveUI.git",
+      "state" : {
+        "revision" : "3d2d5ac6efe70874fb5ffb2f8e1d5ccd457f4366",
+        "version" : "1.0.2"
+      }
+    },
+    {
+      "identity" : "swiftfulrouting",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftfulThinking/SwiftfulRouting.git",
+      "state" : {
+        "revision" : "c9c536b9e6bd99589ab9d41d2178e4ac0bd4fe2b",
+        "version" : "5.3.4"
+      }
+    },
+    {
+      "identity" : "swiftfului",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftfulThinking/SwiftfulUI.git",
+      "state" : {
+        "revision" : "7e6e2d1c29d05e1519f2f5a2ce6012fe4e4dfa19",
+        "version" : "1.2.0"
+      }
+    }
+  ],
+  "version" : 3
+}
