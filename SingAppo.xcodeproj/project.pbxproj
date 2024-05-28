@@ -15,6 +15,8 @@
 		B6E198472C0608C600444790 /* SwiftfulUI in Frameworks */ = {isa = PBXBuildFile; productRef = B6E198462C0608C600444790 /* SwiftfulUI */; };
 		B6E1984A2C0608CD00444790 /* SwiftfulRouting in Frameworks */ = {isa = PBXBuildFile; productRef = B6E198492C0608CD00444790 /* SwiftfulRouting */; };
 		B6E1984D2C0608D600444790 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B6E1984C2C0608D600444790 /* Lottie */; };
+		B6E198502C06092E00444790 /* ImageLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1984F2C06092E00444790 /* ImageLoaderView.swift */; };
+		B6E198522C06098E00444790 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198512C06098E00444790 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		B6E198372C06080100444790 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6E198392C06080100444790 /* SingAppo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SingAppo.entitlements; sourceTree = "<group>"; };
 		B6E1983B2C06080100444790 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B6E1984F2C06092E00444790 /* ImageLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderView.swift; sourceTree = "<group>"; };
+		B6E198512C06098E00444790 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				B6E198332C0607FF00444790 /* SingAppoApp.swift */,
+				B6E1984E2C06092000444790 /* Shared */,
 				B6E198352C0607FF00444790 /* ContentView.swift */,
 				B6E198372C06080100444790 /* Assets.xcassets */,
 				B6E198392C06080100444790 /* SingAppo.entitlements */,
@@ -75,6 +80,15 @@
 				B6E1983B2C06080100444790 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B6E1984E2C06092000444790 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B6E1984F2C06092E00444790 /* ImageLoaderView.swift */,
+				B6E198512C06098E00444790 /* Constants.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,8 +173,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6E198502C06092E00444790 /* ImageLoaderView.swift in Sources */,
 				B6E198362C0607FF00444790 /* ContentView.swift in Sources */,
 				B6E198342C0607FF00444790 /* SingAppoApp.swift in Sources */,
+				B6E198522C06098E00444790 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
