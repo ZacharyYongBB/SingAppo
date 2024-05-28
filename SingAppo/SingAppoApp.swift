@@ -11,7 +11,7 @@ import SwiftUI
 struct SingAppoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
         }
     }
 }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B6E198342C0607FF00444790 /* SingAppoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198332C0607FF00444790 /* SingAppoApp.swift */; };
-		B6E198362C0607FF00444790 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198352C0607FF00444790 /* ContentView.swift */; };
 		B6E198382C06080100444790 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E198372C06080100444790 /* Assets.xcassets */; };
 		B6E1983C2C06080100444790 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E1983B2C06080100444790 /* Preview Assets.xcassets */; };
 		B6E198442C0608B700444790 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = B6E198432C0608B700444790 /* SDWebImageSwiftUI */; };
@@ -17,17 +16,27 @@
 		B6E1984D2C0608D600444790 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B6E1984C2C0608D600444790 /* Lottie */; };
 		B6E198502C06092E00444790 /* ImageLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1984F2C06092E00444790 /* ImageLoaderView.swift */; };
 		B6E198522C06098E00444790 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198512C06098E00444790 /* Constants.swift */; };
+		B6E198552C060C6E00444790 /* ErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198542C060C6E00444790 /* ErrorMessages.swift */; };
+		B6E1985B2C060CFB00444790 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1985A2C060CFB00444790 /* RootView.swift */; };
+		B6E1985E2C060E0D00444790 /* NetworkConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1985D2C060E0D00444790 /* NetworkConnectionManager.swift */; };
+		B6E198602C060E1900444790 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1985F2C060E1900444790 /* NetworkStatus.swift */; };
+		B6E198632C0611DF00444790 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198622C0611DF00444790 /* KeychainManager.swift */; };
+		B6E198662C0611FE00444790 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B6E198652C0611FE00444790 /* KeychainSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B6E198302C0607FF00444790 /* SingAppo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SingAppo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E198332C0607FF00444790 /* SingAppoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingAppoApp.swift; sourceTree = "<group>"; };
-		B6E198352C0607FF00444790 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B6E198372C06080100444790 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6E198392C06080100444790 /* SingAppo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SingAppo.entitlements; sourceTree = "<group>"; };
 		B6E1983B2C06080100444790 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B6E1984F2C06092E00444790 /* ImageLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderView.swift; sourceTree = "<group>"; };
 		B6E198512C06098E00444790 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B6E198542C060C6E00444790 /* ErrorMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessages.swift; sourceTree = "<group>"; };
+		B6E1985A2C060CFB00444790 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		B6E1985D2C060E0D00444790 /* NetworkConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnectionManager.swift; sourceTree = "<group>"; };
+		B6E1985F2C060E1900444790 /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
+		B6E198622C0611DF00444790 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +46,7 @@
 			files = (
 				B6E198472C0608C600444790 /* SwiftfulUI in Frameworks */,
 				B6E1984A2C0608CD00444790 /* SwiftfulRouting in Frameworks */,
+				B6E198662C0611FE00444790 /* KeychainSwift in Frameworks */,
 				B6E198442C0608B700444790 /* SDWebImageSwiftUI in Frameworks */,
 				B6E1984D2C0608D600444790 /* Lottie in Frameworks */,
 			);
@@ -66,7 +76,11 @@
 			children = (
 				B6E198332C0607FF00444790 /* SingAppoApp.swift */,
 				B6E1984E2C06092000444790 /* Shared */,
-				B6E198352C0607FF00444790 /* ContentView.swift */,
+				B6E198592C060CED00444790 /* Root */,
+				B6E198582C060CC900444790 /* Core */,
+				B6E198572C060CB300444790 /* Managers */,
+				B6E198562C060CA200444790 /* Extensions */,
+				B6E198532C060C5400444790 /* Utilities */,
 				B6E198372C06080100444790 /* Assets.xcassets */,
 				B6E198392C06080100444790 /* SingAppo.entitlements */,
 				B6E1983A2C06080100444790 /* Preview Content */,
@@ -86,9 +100,65 @@
 			isa = PBXGroup;
 			children = (
 				B6E1984F2C06092E00444790 /* ImageLoaderView.swift */,
-				B6E198512C06098E00444790 /* Constants.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		B6E198532C060C5400444790 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B6E198512C06098E00444790 /* Constants.swift */,
+				B6E198542C060C6E00444790 /* ErrorMessages.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B6E198562C060CA200444790 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B6E198572C060CB300444790 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B6E1985C2C060DF900444790 /* NetworkConnection */,
+				B6E198622C0611DF00444790 /* KeychainManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		B6E198582C060CC900444790 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B6E198612C0611AB00444790 /* ViewModifiers */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B6E198592C060CED00444790 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				B6E1985A2C060CFB00444790 /* RootView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		B6E1985C2C060DF900444790 /* NetworkConnection */ = {
+			isa = PBXGroup;
+			children = (
+				B6E1985D2C060E0D00444790 /* NetworkConnectionManager.swift */,
+				B6E1985F2C060E1900444790 /* NetworkStatus.swift */,
+			);
+			path = NetworkConnection;
+			sourceTree = "<group>";
+		};
+		B6E198612C0611AB00444790 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +182,7 @@
 				B6E198462C0608C600444790 /* SwiftfulUI */,
 				B6E198492C0608CD00444790 /* SwiftfulRouting */,
 				B6E1984C2C0608D600444790 /* Lottie */,
+				B6E198652C0611FE00444790 /* KeychainSwift */,
 			);
 			productName = SingAppo;
 			productReference = B6E198302C0607FF00444790 /* SingAppo.app */;
@@ -146,6 +217,7 @@
 				B6E198452C0608C600444790 /* XCRemoteSwiftPackageReference "SwiftfulUI" */,
 				B6E198482C0608CD00444790 /* XCRemoteSwiftPackageReference "SwiftfulRouting" */,
 				B6E1984B2C0608D600444790 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				B6E198642C0611FE00444790 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = B6E198312C0607FF00444790 /* Products */;
 			projectDirPath = "";
@@ -173,10 +245,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6E1985E2C060E0D00444790 /* NetworkConnectionManager.swift in Sources */,
 				B6E198502C06092E00444790 /* ImageLoaderView.swift in Sources */,
-				B6E198362C0607FF00444790 /* ContentView.swift in Sources */,
+				B6E1985B2C060CFB00444790 /* RootView.swift in Sources */,
 				B6E198342C0607FF00444790 /* SingAppoApp.swift in Sources */,
+				B6E198552C060C6E00444790 /* ErrorMessages.swift in Sources */,
 				B6E198522C06098E00444790 /* Constants.swift in Sources */,
+				B6E198602C060E1900444790 /* NetworkStatus.swift in Sources */,
+				B6E198632C0611DF00444790 /* KeychainManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +509,14 @@
 				minimumVersion = 4.4.3;
 			};
 		};
+		B6E198642C0611FE00444790 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 24.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -455,6 +539,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B6E1984B2C0608D600444790 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		B6E198652C0611FE00444790 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B6E198642C0611FE00444790 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
