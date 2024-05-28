@@ -22,6 +22,8 @@
 		B6E198602C060E1900444790 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1985F2C060E1900444790 /* NetworkStatus.swift */; };
 		B6E198632C0611DF00444790 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198622C0611DF00444790 /* KeychainManager.swift */; };
 		B6E198662C0611FE00444790 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B6E198652C0611FE00444790 /* KeychainSwift */; };
+		B6E198692C06144F00444790 /* SgPoolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198682C06144F00444790 /* SgPoolsView.swift */; };
+		B6E1986D2C0616B700444790 /* SgPoolsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1986C2C0616B700444790 /* SgPoolsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		B6E1985D2C060E0D00444790 /* NetworkConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnectionManager.swift; sourceTree = "<group>"; };
 		B6E1985F2C060E1900444790 /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		B6E198622C0611DF00444790 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		B6E198682C06144F00444790 /* SgPoolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SgPoolsView.swift; sourceTree = "<group>"; };
+		B6E1986C2C0616B700444790 /* SgPoolsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SgPoolsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,7 @@
 		B6E198582C060CC900444790 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B6E198672C06142900444790 /* SGPools */,
 				B6E198612C0611AB00444790 /* ViewModifiers */,
 			);
 			path = Core;
@@ -159,6 +164,31 @@
 			children = (
 			);
 			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		B6E198672C06142900444790 /* SGPools */ = {
+			isa = PBXGroup;
+			children = (
+				B6E1986B2C06145F00444790 /* ViewModel */,
+				B6E1986A2C06145500444790 /* View */,
+				B6E198682C06144F00444790 /* SgPoolsView.swift */,
+			);
+			path = SGPools;
+			sourceTree = "<group>";
+		};
+		B6E1986A2C06145500444790 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B6E1986B2C06145F00444790 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B6E1986C2C0616B700444790 /* SgPoolsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,8 +275,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6E1986D2C0616B700444790 /* SgPoolsViewModel.swift in Sources */,
 				B6E1985E2C060E0D00444790 /* NetworkConnectionManager.swift in Sources */,
 				B6E198502C06092E00444790 /* ImageLoaderView.swift in Sources */,
+				B6E198692C06144F00444790 /* SgPoolsView.swift in Sources */,
 				B6E1985B2C060CFB00444790 /* RootView.swift in Sources */,
 				B6E198342C0607FF00444790 /* SingAppoApp.swift in Sources */,
 				B6E198552C060C6E00444790 /* ErrorMessages.swift in Sources */,
