@@ -18,13 +18,34 @@ struct SgPoolsView: View {
     var body: some View {
         VStack {
             Text("Toto Numbers")
-            Button("generate Toto numbers") {
-                totoNumbers = vm.generateToto()
+            Button("generate ordinary entry") {
+                totoNumbers = vm.generateToto(system: 6)
+            }
+            Button("generate system 7") {
+                totoNumbers = vm.generateToto(system: 7)
+            }
+            Button("generate system 8") {
+                totoNumbers = vm.generateToto(system: 8)
+            }
+            Button("generate system 9") {
+                totoNumbers = vm.generateToto(system: 9)
+            }
+            Button("generate system 10") {
+                totoNumbers = vm.generateToto(system: 10)
+            }
+            Button("generate system 11") {
+                totoNumbers = vm.generateToto(system: 11)
+            }
+            Button("generate system 12") {
+                totoNumbers = vm.generateToto(system: 12)
             }
             
+            
             if let totoNumbers = totoNumbers {
-                ForEach(totoNumbers, id: \.self) { totoNo in
-                    Text(String(totoNo))
+                HStack {
+                    ForEach(totoNumbers, id: \.self) { totoNo in
+                        Text(String(totoNo))
+                    }
                 }
             }
             

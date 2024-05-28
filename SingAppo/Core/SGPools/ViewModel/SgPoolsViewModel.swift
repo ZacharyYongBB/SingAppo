@@ -9,10 +9,10 @@ import Foundation
 
 class SgPoolsViewModel: ObservableObject {
     
-    func generateToto() -> [Int] {
+    func generateToto(system: Int) -> [Int] {
         var numbers = Set<Int>()
         
-        while numbers.count < 6 {
+        while numbers.count < system {
             let randomNumber = Int.random(in: 1...49)
             numbers.insert(randomNumber)
         }
