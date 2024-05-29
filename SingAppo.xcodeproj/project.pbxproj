@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B68085D02C07300300A4CD91 /* KeyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68085CF2C07300300A4CD91 /* KeyConstants.swift */; };
 		B6E198342C0607FF00444790 /* SingAppoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198332C0607FF00444790 /* SingAppoApp.swift */; };
 		B6E198382C06080100444790 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E198372C06080100444790 /* Assets.xcassets */; };
 		B6E1983C2C06080100444790 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E1983B2C06080100444790 /* Preview Assets.xcassets */; };
@@ -31,9 +32,15 @@
 		B6E1987D2C06579200444790 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1987C2C06579200444790 /* SettingsView.swift */; };
 		B6E1987F2C0657A200444790 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1987E2C0657A200444790 /* SettingsViewModel.swift */; };
 		B6E198812C065B8600444790 /* ButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198802C065B8600444790 /* ButtonViewModifier.swift */; };
+		B6E1988C2C070C2A00444790 /* SiriWaveView in Frameworks */ = {isa = PBXBuildFile; productRef = B6E1988B2C070C2A00444790 /* SiriWaveView */; };
+		B6E1988F2C070C8300444790 /* XCAOpenAIClient in Frameworks */ = {isa = PBXBuildFile; productRef = B6E1988E2C070C8300444790 /* XCAOpenAIClient */; };
+		B6E198922C070CF200444790 /* SpeechAIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198912C070CF200444790 /* SpeechAIView.swift */; };
+		B6E198952C070D5E00444790 /* VoiceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198942C070D5E00444790 /* VoiceModels.swift */; };
+		B6E198992C070DFD00444790 /* SpeechAIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198982C070DFD00444790 /* SpeechAIViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B68085CF2C07300300A4CD91 /* KeyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyConstants.swift; sourceTree = "<group>"; };
 		B6E198302C0607FF00444790 /* SingAppo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SingAppo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E198332C0607FF00444790 /* SingAppoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingAppoApp.swift; sourceTree = "<group>"; };
 		B6E198372C06080100444790 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -55,6 +62,9 @@
 		B6E1987C2C06579200444790 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B6E1987E2C0657A200444790 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		B6E198802C065B8600444790 /* ButtonViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewModifier.swift; sourceTree = "<group>"; };
+		B6E198912C070CF200444790 /* SpeechAIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechAIView.swift; sourceTree = "<group>"; };
+		B6E198942C070D5E00444790 /* VoiceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceModels.swift; sourceTree = "<group>"; };
+		B6E198982C070DFD00444790 /* SpeechAIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechAIViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +75,8 @@
 				B6E198472C0608C600444790 /* SwiftfulUI in Frameworks */,
 				B6E1984A2C0608CD00444790 /* SwiftfulRouting in Frameworks */,
 				B6E198662C0611FE00444790 /* KeychainSwift in Frameworks */,
+				B6E1988F2C070C8300444790 /* XCAOpenAIClient in Frameworks */,
+				B6E1988C2C070C2A00444790 /* SiriWaveView in Frameworks */,
 				B6E198442C0608B700444790 /* SDWebImageSwiftUI in Frameworks */,
 				B6E1984D2C0608D600444790 /* Lottie in Frameworks */,
 			);
@@ -92,6 +104,7 @@
 		B6E198322C0607FF00444790 /* SingAppo */ = {
 			isa = PBXGroup;
 			children = (
+				B68085CF2C07300300A4CD91 /* KeyConstants.swift */,
 				B6E198332C0607FF00444790 /* SingAppoApp.swift */,
 				B6E1984E2C06092000444790 /* Shared */,
 				B6E198592C060CED00444790 /* Root */,
@@ -150,6 +163,7 @@
 		B6E198582C060CC900444790 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B6E198902C070CE400444790 /* SpeechAI */,
 				B6E198732C064CDC00444790 /* Bluetooth */,
 				B6E1986E2C0649B900444790 /* Home */,
 				B6E198672C06142900444790 /* SGPools */,
@@ -260,6 +274,40 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		B6E198902C070CE400444790 /* SpeechAI */ = {
+			isa = PBXGroup;
+			children = (
+				B6E198972C070DE800444790 /* View */,
+				B6E198962C070DDF00444790 /* ViewModel */,
+				B6E198932C070D4F00444790 /* Model */,
+			);
+			path = SpeechAI;
+			sourceTree = "<group>";
+		};
+		B6E198932C070D4F00444790 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B6E198942C070D5E00444790 /* VoiceModels.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B6E198962C070DDF00444790 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B6E198982C070DFD00444790 /* SpeechAIViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B6E198972C070DE800444790 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B6E198912C070CF200444790 /* SpeechAIView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -282,6 +330,8 @@
 				B6E198492C0608CD00444790 /* SwiftfulRouting */,
 				B6E1984C2C0608D600444790 /* Lottie */,
 				B6E198652C0611FE00444790 /* KeychainSwift */,
+				B6E1988B2C070C2A00444790 /* SiriWaveView */,
+				B6E1988E2C070C8300444790 /* XCAOpenAIClient */,
 			);
 			productName = SingAppo;
 			productReference = B6E198302C0607FF00444790 /* SingAppo.app */;
@@ -317,6 +367,8 @@
 				B6E198482C0608CD00444790 /* XCRemoteSwiftPackageReference "SwiftfulRouting" */,
 				B6E1984B2C0608D600444790 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				B6E198642C0611FE00444790 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				B6E1988A2C070C2A00444790 /* XCRemoteSwiftPackageReference "SiriWaveView" */,
+				B6E1988D2C070C8300444790 /* XCRemoteSwiftPackageReference "XCAOpenAIClient" */,
 			);
 			productRefGroup = B6E198312C0607FF00444790 /* Products */;
 			projectDirPath = "";
@@ -344,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6E198992C070DFD00444790 /* SpeechAIViewModel.swift in Sources */,
 				B6E1987D2C06579200444790 /* SettingsView.swift in Sources */,
 				B6E1986D2C0616B700444790 /* SgPoolsViewModel.swift in Sources */,
 				B6E1985E2C060E0D00444790 /* NetworkConnectionManager.swift in Sources */,
@@ -351,7 +404,10 @@
 				B6E198692C06144F00444790 /* SgPoolsView.swift in Sources */,
 				B6E1985B2C060CFB00444790 /* RootView.swift in Sources */,
 				B6E198812C065B8600444790 /* ButtonViewModifier.swift in Sources */,
+				B6E198952C070D5E00444790 /* VoiceModels.swift in Sources */,
 				B6E198702C0649CA00444790 /* HomeView.swift in Sources */,
+				B6E198922C070CF200444790 /* SpeechAIView.swift in Sources */,
+				B68085D02C07300300A4CD91 /* KeyConstants.swift in Sources */,
 				B6E198342C0607FF00444790 /* SingAppoApp.swift in Sources */,
 				B6E198722C0649E100444790 /* HomeViewModel.swift in Sources */,
 				B6E198552C060C6E00444790 /* ErrorMessages.swift in Sources */,
@@ -497,6 +553,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow bluetooth use";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Discovering bluetooth peripherals";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone for AI/Singing";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -539,6 +596,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow bluetooth use";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Discovering bluetooth peripherals";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone for AI/Singing";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -629,6 +687,22 @@
 				minimumVersion = 24.0.0;
 			};
 		};
+		B6E1988A2C070C2A00444790 /* XCRemoteSwiftPackageReference "SiriWaveView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alfianlosari/SiriWaveView.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		B6E1988D2C070C8300444790 /* XCRemoteSwiftPackageReference "XCAOpenAIClient" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alfianlosari/XCAOpenAIClient.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -656,6 +730,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B6E198642C0611FE00444790 /* XCRemoteSwiftPackageReference "keychain-swift" */;
 			productName = KeychainSwift;
+		};
+		B6E1988B2C070C2A00444790 /* SiriWaveView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B6E1988A2C070C2A00444790 /* XCRemoteSwiftPackageReference "SiriWaveView" */;
+			productName = SiriWaveView;
+		};
+		B6E1988E2C070C8300444790 /* XCAOpenAIClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B6E1988D2C070C8300444790 /* XCRemoteSwiftPackageReference "XCAOpenAIClient" */;
+			productName = XCAOpenAIClient;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -12,7 +12,9 @@ struct HomeView: View {
     @Environment(\.router) var router
     @State private var listItems: [(String, AnyView, Bool)] = [
         ("SG Pools", AnyView(SgPoolsView()), true),
-        ("Bluetooth Scanner", AnyView(BluetoothView()), true)
+        ("Bluetooth Scanner", AnyView(BluetoothView()), true),
+        ("Ask AI", AnyView(SpeechAIView()), true),
+        
     ]
     
     var body: some View {
