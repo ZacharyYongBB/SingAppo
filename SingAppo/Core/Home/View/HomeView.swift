@@ -14,7 +14,7 @@ struct HomeView: View {
         ("SG Pools", AnyView(SgPoolsView()), true),
         ("Bluetooth Scanner", AnyView(BluetoothView()), true),
         ("Ask AI", AnyView(SpeechAIView()), true),
-        
+        ("Bus Arrival", AnyView(BusArrivalView()), true),
     ]
     
     var body: some View {

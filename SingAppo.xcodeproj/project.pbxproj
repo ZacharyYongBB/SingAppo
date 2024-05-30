@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B65DE6942C07916400B9D2A8 /* BusArrivalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DE6932C07916400B9D2A8 /* BusArrivalView.swift */; };
+		B65DE6962C07916C00B9D2A8 /* BusArrivalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DE6952C07916C00B9D2A8 /* BusArrivalViewModel.swift */; };
+		B65DE69B2C0797A900B9D2A8 /* BusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DE69A2C0797A900B9D2A8 /* BusModel.swift */; };
 		B68085D02C07300300A4CD91 /* KeyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68085CF2C07300300A4CD91 /* KeyConstants.swift */; };
 		B6E198342C0607FF00444790 /* SingAppoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198332C0607FF00444790 /* SingAppoApp.swift */; };
 		B6E198382C06080100444790 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E198372C06080100444790 /* Assets.xcassets */; };
@@ -37,9 +40,15 @@
 		B6E198922C070CF200444790 /* SpeechAIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198912C070CF200444790 /* SpeechAIView.swift */; };
 		B6E198952C070D5E00444790 /* VoiceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198942C070D5E00444790 /* VoiceModels.swift */; };
 		B6E198992C070DFD00444790 /* SpeechAIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198982C070DFD00444790 /* SpeechAIViewModel.swift */; };
+		B6ED6B042C07B48000F4BAEC /* NextBusFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ED6B032C07B48000F4BAEC /* NextBusFormatter.swift */; };
+		B6ED6B062C085D2B00F4BAEC /* DismissKeyboardOnTapModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ED6B052C085D2B00F4BAEC /* DismissKeyboardOnTapModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B65DE6932C07916400B9D2A8 /* BusArrivalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusArrivalView.swift; sourceTree = "<group>"; };
+		B65DE6952C07916C00B9D2A8 /* BusArrivalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusArrivalViewModel.swift; sourceTree = "<group>"; };
+		B65DE69A2C0797A900B9D2A8 /* BusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusModel.swift; sourceTree = "<group>"; };
+		B65DE69C2C07A52600B9D2A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B68085CF2C07300300A4CD91 /* KeyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyConstants.swift; sourceTree = "<group>"; };
 		B6E198302C0607FF00444790 /* SingAppo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SingAppo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E198332C0607FF00444790 /* SingAppoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingAppoApp.swift; sourceTree = "<group>"; };
@@ -65,6 +74,8 @@
 		B6E198912C070CF200444790 /* SpeechAIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechAIView.swift; sourceTree = "<group>"; };
 		B6E198942C070D5E00444790 /* VoiceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceModels.swift; sourceTree = "<group>"; };
 		B6E198982C070DFD00444790 /* SpeechAIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechAIViewModel.swift; sourceTree = "<group>"; };
+		B6ED6B032C07B48000F4BAEC /* NextBusFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextBusFormatter.swift; sourceTree = "<group>"; };
+		B6ED6B052C085D2B00F4BAEC /* DismissKeyboardOnTapModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissKeyboardOnTapModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +96,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B65DE68F2C07914300B9D2A8 /* BusArrival */ = {
+			isa = PBXGroup;
+			children = (
+				B65DE6922C07915600B9D2A8 /* Model */,
+				B65DE6912C07915100B9D2A8 /* ViewModel */,
+				B65DE6902C07914C00B9D2A8 /* View */,
+			);
+			path = BusArrival;
+			sourceTree = "<group>";
+		};
+		B65DE6902C07914C00B9D2A8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B65DE6932C07916400B9D2A8 /* BusArrivalView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B65DE6912C07915100B9D2A8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B65DE6952C07916C00B9D2A8 /* BusArrivalViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B65DE6922C07915600B9D2A8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B65DE69A2C0797A900B9D2A8 /* BusModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		B6E198272C0607FF00444790 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +149,7 @@
 		B6E198322C0607FF00444790 /* SingAppo */ = {
 			isa = PBXGroup;
 			children = (
+				B65DE69C2C07A52600B9D2A8 /* Info.plist */,
 				B68085CF2C07300300A4CD91 /* KeyConstants.swift */,
 				B6E198332C0607FF00444790 /* SingAppoApp.swift */,
 				B6E1984E2C06092000444790 /* Shared */,
@@ -140,6 +186,7 @@
 			children = (
 				B6E198512C06098E00444790 /* Constants.swift */,
 				B6E198542C060C6E00444790 /* ErrorMessages.swift */,
+				B6ED6B032C07B48000F4BAEC /* NextBusFormatter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -163,6 +210,7 @@
 		B6E198582C060CC900444790 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B65DE68F2C07914300B9D2A8 /* BusArrival */,
 				B6E198902C070CE400444790 /* SpeechAI */,
 				B6E198732C064CDC00444790 /* Bluetooth */,
 				B6E1986E2C0649B900444790 /* Home */,
@@ -193,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				B6E198802C065B8600444790 /* ButtonViewModifier.swift */,
+				B6ED6B052C085D2B00F4BAEC /* DismissKeyboardOnTapModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -406,14 +455,19 @@
 				B6E198812C065B8600444790 /* ButtonViewModifier.swift in Sources */,
 				B6E198952C070D5E00444790 /* VoiceModels.swift in Sources */,
 				B6E198702C0649CA00444790 /* HomeView.swift in Sources */,
+				B6ED6B042C07B48000F4BAEC /* NextBusFormatter.swift in Sources */,
 				B6E198922C070CF200444790 /* SpeechAIView.swift in Sources */,
 				B68085D02C07300300A4CD91 /* KeyConstants.swift in Sources */,
+				B65DE69B2C0797A900B9D2A8 /* BusModel.swift in Sources */,
 				B6E198342C0607FF00444790 /* SingAppoApp.swift in Sources */,
 				B6E198722C0649E100444790 /* HomeViewModel.swift in Sources */,
 				B6E198552C060C6E00444790 /* ErrorMessages.swift in Sources */,
+				B65DE6942C07916400B9D2A8 /* BusArrivalView.swift in Sources */,
 				B6E198522C06098E00444790 /* Constants.swift in Sources */,
+				B6ED6B062C085D2B00F4BAEC /* DismissKeyboardOnTapModifier.swift in Sources */,
 				B6E198602C060E1900444790 /* NetworkStatus.swift in Sources */,
 				B6E1987B2C064D3100444790 /* BluetoothViewModel.swift in Sources */,
+				B65DE6962C07916C00B9D2A8 /* BusArrivalViewModel.swift in Sources */,
 				B6E198632C0611DF00444790 /* KeychainManager.swift in Sources */,
 				B6E198782C064D1400444790 /* BluetoothView.swift in Sources */,
 				B6E1987F2C0657A200444790 /* SettingsViewModel.swift in Sources */,
@@ -550,6 +604,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SingAppo/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow bluetooth use";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Discovering bluetooth peripherals";
@@ -593,6 +648,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SingAppo/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow bluetooth use";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Discovering bluetooth peripherals";
