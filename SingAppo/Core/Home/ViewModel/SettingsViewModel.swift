@@ -7,7 +7,22 @@
 
 import Foundation
 
-class SettingsViewModel: ObservableObject {
+@Observable final class SettingsViewModel {
     
+    func resetPassword() async throws{
+        let authUser = try AuthenticationManager.shared.getAuthenticatedUser()
+        
+        guard let email = authUser.email else {
+            throw ErrorMessage.noEmailFound
+        }
+        try await AuthenticationManager.shared.resetPassword(email: email)
+    }
+    
+    func updateEmail(email: String) async throws {
+        try await AuthenticationManager.shared.updateEmail(email: email)
+    }
+    
+    func updatePassword(password: String) async throws {
+        try await AuthenticationManager.shared.updatePassword(password: password)    }
     
 }

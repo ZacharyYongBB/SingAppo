@@ -13,4 +13,6 @@ enum ErrorMessage: String, Error {
     case invalidResponse = "Invalid response from server. Please try again"
     case invalidData = "The data received from the server was invalid. Please try again"
     case missingApiKey = "Missing API Key."
+    case noEmailFound = "User email cant be retrieved"
+    case invalidUser = "The user is not Authenticated"
 }

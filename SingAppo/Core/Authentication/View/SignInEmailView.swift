@@ -21,11 +21,25 @@ struct SignInEmailView: View {
             Button {
                 Task {
                     do {
-                        try await vm.signIn()
+                        try await vm.signUp()
                         showSignInView = false
+                        print("signup")
+                        return
                     } catch {
                         // TODO: handle error
+                        print(error)
                     }
+                    
+                    do {
+                        try await vm.signIn()
+                        showSignInView = false
+                        print("sign in")
+                        return
+                    } catch {
+                        // TODO: handle error
+                        print(error)
+                    }
+
                 }
             } label: {
                 Text("Sign In")

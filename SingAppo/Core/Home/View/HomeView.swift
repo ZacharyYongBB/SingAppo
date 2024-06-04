@@ -55,7 +55,7 @@ struct HomeView: View {
                         }
                     }, label: {
                         Image(systemName: "gear")
-                        Text("Customize")
+                        Text("Settings")
                     })
                 }
             }
