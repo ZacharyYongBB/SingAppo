@@ -7,15 +7,18 @@
 
 import SwiftUI
 import Firebase
+import SwiftfulRouting
 
 @main
 struct SingAppoApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-
+    
     var body: some Scene {
         WindowGroup {
-            RootView()
+            RouterView { _ in
+                RootView()
+            }
         }
     }
     

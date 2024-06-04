@@ -17,14 +17,7 @@ struct BusArrivalView: View {
     var body: some View {
         VStack {
             TextField("Enter Bus Stop Number", text: $busStopNo)
-                .padding()
-                .background(Color(UIColor.systemGray6))
-                .cornerRadius(10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.gray, lineWidth: 1)
-                )
-                .keyboardType(.numberPad)
+                .primaryTextField(kbType: .numberPad)
             
             Button(action: {
                 Task {

@@ -7,7 +7,10 @@
 
 import Foundation
 
-class HomeViewModel: ObservableObject {
+@Observable final class HomeViewModel {
     
+    func logOut() throws {
+        try AuthenticationManager.shared.signOut()
+    }
     
 }

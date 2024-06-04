@@ -10,9 +10,11 @@ import SwiftUI
 struct HomeView: View {
     
     @Environment(\.router) var router
+    @Binding var showSignInView: Bool
+    @State private var vm = HomeViewModel()
     @State private var listItems: [(String, AnyView, Bool)] = [
         ("SG Pools", AnyView(SgPoolsView()), true),
-        ("Bluetooth Scanner", AnyView(BluetoothView()), true),
+//        ("Bluetooth Scanner", AnyView(BluetoothView()), true),
         ("Ask AI", AnyView(SpeechAIView()), true),
         ("Bus Arrival", AnyView(BusArrivalView()), true),
     ]
@@ -32,7 +34,20 @@ struct HomeView: View {
         }
         .navigationTitle("What do you want")
         .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
+            ToolbarItem(placement: .topBarLeading) {
+                Button("Log Out") {
+                    Task {
+                        do {
+                            try vm.logOut()
+                            showSignInView = true
+                        } catch {
+                            // TODO: handle Error
+                            print(error)
+                        }
+                    }
+                }
+            }
+            ToolbarItem(placement: .topBarTrailing) {
                 HStack {
                     Button(action: {
                         router.showScreen(.push) { _ in
@@ -51,6 +66,6 @@ struct HomeView: View {
 
 #Preview {
     NavigationStack {
-        HomeView()
+        HomeView(showSignInView: .constant(false))
     }
 }

@@ -11,41 +11,24 @@ import SwiftfulRouting
 struct RootView: View {
     
     @StateObject private var networkStatus = NetworkStatus()
-    
-    
-    //    private let tabViews: [AnyView] = [
-    //        AnyView(HomeView().tabItem {
-    //            Image(systemName: "house")
-    //            Text("Home")
-    //        }),
-    //        AnyView(SgPoolsView().tabItem {
-    //            Image(systemName: "dollarsign.circle")
-    //            Text("SG Pools")
-    //        }),
-    //        AnyView(BluetoothView().tabItem {
-    //            Image(systemName: "network")
-    //            Text("Bluetooth")
-    //        }),
-    //    ]
+    @Environment(\.router) var router
+    @State private var showSignInView: Bool = false
     
     var body: some View {
-        RouterView { _ in
-            //            TabView {
-            //                ForEach(tabViews.indices, id: \.self) { index in
-            //                    tabViews[index]
-            //                }
-            //            }
-            HomeView()
+        
+        ZStack {
+            HomeView(showSignInView: $showSignInView)
         }
-        //        VStack {
-        //            if networkStatus.isConnected {
-        //                Text("We have internet connection!")
-        //                    .foregroundColor(.green)
-        //            } else {
-        //                Text("No internet connection.")
-        //                    .foregroundColor(.red)
-        //            }
-        //        }
+        .onAppear {
+            let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
+            self.showSignInView = authUser == nil
+        }
+        .fullScreenCover(isPresented: $showSignInView) {
+            NavigationStack {
+                AuthenticationView(showSignInView: $showSignInView)
+            }
+        }
+        
     }
 }
 
