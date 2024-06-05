@@ -9,6 +9,14 @@ import Foundation
 
 @Observable final class SettingsViewModel {
     
+    var authProviders: [AuthProviderOption] = []
+    
+    func loadAuthProviders() {
+        if let providers = try? AuthenticationManager.shared.getProviders() {
+            authProviders = providers
+        }
+    }
+    
     func resetPassword() async throws{
         let authUser = try AuthenticationManager.shared.getAuthenticatedUser()
         

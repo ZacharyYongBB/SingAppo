@@ -32,16 +32,22 @@ struct SettingsView: View {
                     }
                 }
             }
-            Button {
-                router.showScreen(.sheet) { _ in
-                    accountSettings
+            if vm.authProviders.contains(.email) {
+                Button {
+                    router.showScreen(.sheet) { _ in
+                        accountSettings
+                    }
+                } label: {
+                    Text("Account Settings")
+                        .primaryButton()
+                        .padding(.horizontal)
                 }
-            } label: {
-                Text("Account Settings")
-                    .primaryButton()
-                    .padding(.horizontal)
+                
             }
             
+        }
+        .onAppear {
+            vm.loadAuthProviders()
         }
         .navigationTitle("Settings")
     }
@@ -85,7 +91,7 @@ extension SettingsView {
             }
             
             Spacer()
-
+            
             
             SecureField("Enter new Email", text: $updatePasswordField)
                 .primaryTextField()
@@ -105,7 +111,7 @@ extension SettingsView {
             }
             
             Spacer()
-
+            
         }
         .padding(20)
     }

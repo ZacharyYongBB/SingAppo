@@ -24,6 +24,35 @@ final class AuthenticationManager {
         return AuthDataResModel(user: user)
     }
     
+    func getProviders() throws -> [AuthProviderOption]{
+        guard let providerData = Auth.auth().currentUser?.providerData else {
+            throw ErrorMessage.invalidUser
+        }
+        
+        var providers: [AuthProviderOption] = []
+        for provider in providerData {
+            if let option = AuthProviderOption(rawValue: provider.providerID) {
+                providers.append(option)
+            } else {
+                assertionFailure("Provider option not found: \(provider.providerID)")
+            }
+        }
+        
+        return providers
+    }
+    
+    func signOut() throws {
+        try Auth.auth().signOut()
+    }
+    
+}
+
+
+
+
+// MARK: Sign in EMAIL
+extension AuthenticationManager {
+    
     @discardableResult
     func createUser(email: String, password: String) async throws -> AuthDataResModel {
         let authDataRes =  try await Auth.auth().createUser(withEmail: email, password: password)
@@ -36,9 +65,6 @@ final class AuthenticationManager {
         return AuthDataResModel(user: authDataRes.user)
     }
     
-    func signOut() throws {
-        try Auth.auth().signOut()
-    }
     
     func resetPassword(email: String) async throws {
         try await Auth.auth().sendPasswordReset(withEmail: email)
@@ -59,5 +85,24 @@ final class AuthenticationManager {
         
         try await user.sendEmailVerification(beforeUpdatingEmail: email)
     }
+    
+}
+
+
+// MARK: Sign in SSO
+extension AuthenticationManager {
+    
+    
+    func signIn(credentials: AuthCredential) async throws -> AuthDataResModel {
+        let authDataRes = try await Auth.auth().signIn(with: credentials)
+        return AuthDataResModel(user: authDataRes.user)
+    }
+    
+    @discardableResult
+    func signInWithGoogle(tokens: GoogleSignInResModel) async throws -> AuthDataResModel {
+        let credential = GoogleAuthProvider.credential(withIDToken: tokens.idToken, accessToken: tokens.accessToken)
+        return try await signIn(credentials: credential)
+    }
+    
     
 }
