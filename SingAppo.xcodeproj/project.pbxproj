@@ -25,6 +25,7 @@
 		B65DE6962C07916C00B9D2A8 /* BusArrivalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DE6952C07916C00B9D2A8 /* BusArrivalViewModel.swift */; };
 		B65DE69B2C0797A900B9D2A8 /* BusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DE69A2C0797A900B9D2A8 /* BusModel.swift */; };
 		B68085D02C07300300A4CD91 /* KeyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68085CF2C07300300A4CD91 /* KeyConstants.swift */; };
+		B6A7E9B92C122FA7007883BB /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A7E9B82C122FA7007883BB /* AuthenticationViewModel.swift */; };
 		B6E198342C0607FF00444790 /* SingAppoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198332C0607FF00444790 /* SingAppoApp.swift */; };
 		B6E198382C06080100444790 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E198372C06080100444790 /* Assets.xcassets */; };
 		B6E1983C2C06080100444790 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E1983B2C06080100444790 /* Preview Assets.xcassets */; };
@@ -77,6 +78,7 @@
 		B65DE69A2C0797A900B9D2A8 /* BusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusModel.swift; sourceTree = "<group>"; };
 		B65DE69C2C07A52600B9D2A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B68085CF2C07300300A4CD91 /* KeyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyConstants.swift; sourceTree = "<group>"; };
+		B6A7E9B82C122FA7007883BB /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		B6E198302C0607FF00444790 /* SingAppo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SingAppo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E198332C0607FF00444790 /* SingAppoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingAppoApp.swift; sourceTree = "<group>"; };
 		B6E198372C06080100444790 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				B630BEA12C0F00AE00F093FA /* SignInEmailViewModel.swift */,
+				B6A7E9B82C122FA7007883BB /* AuthenticationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6A7E9B92C122FA7007883BB /* AuthenticationViewModel.swift in Sources */,
 				B6E198992C070DFD00444790 /* SpeechAIViewModel.swift in Sources */,
 				B630BEA22C0F00AF00F093FA /* SignInEmailViewModel.swift in Sources */,
 				B6E1987D2C06579200444790 /* SettingsView.swift in Sources */,

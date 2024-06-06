@@ -117,4 +117,40 @@ extension AuthenticationManager {
     
 }
 
-// https://singappo-7b8ba.firebaseapp.com/__/auth/handler
+// MARK: Sign in anonymous
+extension AuthenticationManager {
+    
+    @discardableResult
+    func signInAnonymous() async throws -> AuthDataResModel {
+        let authDataRes = try await Auth.auth().signInAnonymously()
+        return AuthDataResModel(user: authDataRes.user)
+    }
+    
+    func linkEmail(email: String, password: String) async throws -> AuthDataResModel {
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+        return try await linkCredentials(credential: credential)
+    }
+    
+    func linkApple(tokens: SignInWithAppleResult) async throws -> AuthDataResModel {
+        let credential = OAuthProvider.credential(
+            withProviderID: AuthProviderOption.apple.rawValue,
+            idToken: tokens.token,
+            rawNonce: tokens.nonce
+        )
+        return try await linkCredentials(credential: credential)
+    }
+    
+    func linkGoogle(tokens: GoogleSignInResult) async throws -> AuthDataResModel {
+        let credential = GoogleAuthProvider.credential(withIDToken: tokens.idToken, accessToken: tokens.accessToken)
+        return try await linkCredentials(credential: credential)
+    }
+    
+    private func linkCredentials(credential: AuthCredential) async throws -> AuthDataResModel {
+        guard let user = Auth.auth().currentUser else {
+            throw ErrorMessage.invalidUser
+        }
+        let authDataResult = try await user.link(with: credential)
+        return AuthDataResModel(user: authDataResult.user)
+    }
+    
+}

@@ -10,11 +10,16 @@ import Foundation
 @Observable final class SettingsViewModel {
     
     var authProviders: [AuthProviderOption] = []
+    var authUser: AuthDataResModel? = nil
     
     func loadAuthProviders() {
         if let providers = try? AuthenticationManager.shared.getProviders() {
             authProviders = providers
         }
+    }
+    
+    func loadAuthUser() {
+        self.authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
     }
     
     func resetPassword() async throws{
@@ -31,6 +36,23 @@ import Foundation
     }
     
     func updatePassword(password: String) async throws {
-        try await AuthenticationManager.shared.updatePassword(password: password)    }
+        try await AuthenticationManager.shared.updatePassword(password: password)   
+    }
+    
+    func linkGoogleAccount() async throws {
+        let helper = SignInWithGoogleHelper(GIDClientID: GID_CLIENT_ID)
+        let tokens = try await helper.signIn()
+        self.authUser = try await AuthenticationManager.shared.linkGoogle(tokens: tokens)
+    }
+    
+    func linkAppleAccount() async throws {
+        let helper = await SignInAppleHelper()
+        let tokens = try await helper.startSignInWithAppleFlow()
+        self.authUser = try await AuthenticationManager.shared.linkApple(tokens: tokens)
+    }
+    
+    func linkEmailAccount(email: String, password: String) async throws {
+        self.authUser = try await AuthenticationManager.shared.linkEmail(email: email, password: password)
+    }
     
 }

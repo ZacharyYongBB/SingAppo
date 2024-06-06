@@ -31,6 +31,9 @@ struct SettingsView: View {
                         Text(listItems[index].0)
                     }
                 }
+                if vm.authUser?.isAnonymous == true {
+                    anonymousSection
+                }
             }
             if vm.authProviders.contains(.email) {
                 Button {
@@ -48,12 +51,15 @@ struct SettingsView: View {
         }
         .onAppear {
             vm.loadAuthProviders()
+            vm.loadAuthUser()
         }
         .navigationTitle("Settings")
     }
 }
 
 extension SettingsView {
+    
+    
     private var accountSettings: some View {
         VStack {
             Spacer()
@@ -115,4 +121,42 @@ extension SettingsView {
         }
         .padding(20)
     }
+    
+    private var anonymousSection: some View {
+        Section {
+            Button("Link Google Account") {
+                Task {
+                    do {
+                        try await vm.linkGoogleAccount()
+                    } catch {
+                        print(error)
+                        // TODO: handle error
+                    }
+                }
+            }
+            Button("Link Apple Account") {
+                Task {
+                    do {
+                        try await vm.linkAppleAccount()
+                    } catch {
+                        print(error)
+                        // TODO: handle error
+                    }
+                }
+            }
+            Button("Link Email Account") {
+                Task {
+                    do {
+                        try await vm.linkEmailAccount(email: "hello@abc.com", password: "aaaaaa")
+                    } catch {
+                        print(error)
+                        // TODO: handle error
+                    }
+                }
+            }
+        } header: {
+            Text("Create Account")
+        }
+    }
 }
+
