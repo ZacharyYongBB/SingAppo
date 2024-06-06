@@ -45,6 +45,14 @@ final class AuthenticationManager {
         try Auth.auth().signOut()
     }
     
+    func delete() async throws {
+        guard let user = Auth.auth().currentUser else {
+            throw ErrorMessage.invalidUser
+        }
+        
+        try await user.delete()
+    }
+    
 }
 
 

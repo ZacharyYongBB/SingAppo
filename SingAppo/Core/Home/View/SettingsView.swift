@@ -13,6 +13,7 @@ struct SettingsView: View {
     @Environment(\.router) var router
     
     @Binding var listItems: [(String, AnyView, Bool)]
+    @Binding var showSignInView: Bool
     @State private var vm = SettingsViewModel()
     @State private var updateEmailField = ""
     @State private var updatePasswordField = ""
@@ -23,6 +24,40 @@ struct SettingsView: View {
     var body: some View {
         VStack {
             List {
+                Button {
+                    Task {
+                        do {
+                            try vm.logOut()
+                            showSignInView = true
+                        } catch {
+                            // TODO: handle error
+                            print(error)
+                        }
+                    }
+                } label: {
+                    Text("Log Out")
+                }
+                
+                Button(role: .destructive) {
+                    Task {
+                        do {
+                            // probably ask user if they are sure
+                            //                            router.showScreen(.push) {
+                            //                                 on dismiss callback to confirm if they are really authenticated
+                            //                            } destination: { _ in
+                            //                                ConfirmDeleteScreen()
+                            //                            }
+                            
+                            try await vm.deleteAccount()
+                            showSignInView = true
+                        } catch {
+                            // TODO: handle error
+                            print(error)
+                        }
+                    }
+                } label: {
+                    Text("Delete Account")
+                }
                 ForEach(0..<listItems.count, id: \.self) { index in
                     Toggle(isOn: Binding(
                         get: { listItems[index].2 },

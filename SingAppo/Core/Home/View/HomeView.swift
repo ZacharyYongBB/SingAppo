@@ -51,7 +51,7 @@ struct HomeView: View {
                 HStack {
                     Button(action: {
                         router.showScreen(.push) { _ in
-                            SettingsView(listItems: $listItems)
+                            SettingsView(listItems: $listItems, showSignInView: $showSignInView)
                         }
                     }, label: {
                         Image(systemName: "gear")
