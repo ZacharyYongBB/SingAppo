@@ -104,5 +104,17 @@ extension AuthenticationManager {
         return try await signIn(credentials: credential)
     }
     
+    @discardableResult
+    func signInWithApple(tokens: SignInWithAppleResult) async throws -> AuthDataResModel {
+        let credential = OAuthProvider.credential(
+            withProviderID: AuthProviderOption.apple.rawValue,
+            idToken: tokens.token,
+            rawNonce: tokens.nonce
+        )
+        return try await signIn(credentials: credential)
+    }
+    
     
 }
+
+// https://singappo-7b8ba.firebaseapp.com/__/auth/handler

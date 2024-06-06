@@ -15,4 +15,5 @@ enum ErrorMessage: String, Error {
     case missingApiKey = "Missing API Key."
     case noEmailFound = "User email cant be retrieved"
     case invalidUser = "The user is not Authenticated"
+    case unableToFindTopVC = "Top View Controller not found"
 }
