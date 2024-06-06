@@ -99,7 +99,7 @@ extension AuthenticationManager {
     }
     
     @discardableResult
-    func signInWithGoogle(tokens: GoogleSignInResModel) async throws -> AuthDataResModel {
+    func signInWithGoogle(tokens: GoogleSignInResult) async throws -> AuthDataResModel {
         let credential = GoogleAuthProvider.credential(withIDToken: tokens.idToken, accessToken: tokens.accessToken)
         return try await signIn(credentials: credential)
     }
