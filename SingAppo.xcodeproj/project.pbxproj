@@ -25,6 +25,9 @@
 		B65DE6962C07916C00B9D2A8 /* BusArrivalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DE6952C07916C00B9D2A8 /* BusArrivalViewModel.swift */; };
 		B65DE69B2C0797A900B9D2A8 /* BusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DE69A2C0797A900B9D2A8 /* BusModel.swift */; };
 		B68085D02C07300300A4CD91 /* KeyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68085CF2C07300300A4CD91 /* KeyConstants.swift */; };
+		B680CF852C12E31200D1D6F3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B680CF842C12E31200D1D6F3 /* FirebaseFirestore */; };
+		B680CF872C12E31200D1D6F3 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B680CF862C12E31200D1D6F3 /* FirebaseFirestoreSwift */; };
+		B680CF8A2C12E7D300D1D6F3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B680CF892C12E7D300D1D6F3 /* ProfileView.swift */; };
 		B6A7E9B92C122FA7007883BB /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A7E9B82C122FA7007883BB /* AuthenticationViewModel.swift */; };
 		B6E198342C0607FF00444790 /* SingAppoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198332C0607FF00444790 /* SingAppoApp.swift */; };
 		B6E198382C06080100444790 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E198372C06080100444790 /* Assets.xcassets */; };
@@ -78,6 +81,7 @@
 		B65DE69A2C0797A900B9D2A8 /* BusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusModel.swift; sourceTree = "<group>"; };
 		B65DE69C2C07A52600B9D2A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B68085CF2C07300300A4CD91 /* KeyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyConstants.swift; sourceTree = "<group>"; };
+		B680CF892C12E7D300D1D6F3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		B6A7E9B82C122FA7007883BB /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		B6E198302C0607FF00444790 /* SingAppo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SingAppo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E198332C0607FF00444790 /* SingAppoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingAppoApp.swift; sourceTree = "<group>"; };
@@ -113,7 +117,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6ED6B0D2C0E33BF00F4BAEC /* FirebaseAnalyticsSwift in Frameworks */,
+				B680CF852C12E31200D1D6F3 /* FirebaseFirestore in Frameworks */,
 				B630BE992C0EFD5B00F093FA /* FirebaseAuth in Frameworks */,
+				B680CF872C12E31200D1D6F3 /* FirebaseFirestoreSwift in Frameworks */,
 				B62D591A2C10989100EAA5BA /* GoogleSignIn in Frameworks */,
 				B62D591C2C10989100EAA5BA /* GoogleSignInSwift in Frameworks */,
 				B6E198472C0608C600444790 /* SwiftfulUI in Frameworks */,
@@ -218,6 +224,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		B680CF882C12E7CA00D1D6F3 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B680CF8B2C12E7DA00D1D6F3 /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		B680CF8B2C12E7DA00D1D6F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B680CF892C12E7D300D1D6F3 /* ProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B6E198272C0607FF00444790 = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +324,7 @@
 		B6E198582C060CC900444790 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B680CF882C12E7CA00D1D6F3 /* Profile */,
 				B630BE9A2C0EFE8900F093FA /* Authentication */,
 				B65DE68F2C07914300B9D2A8 /* BusArrival */,
 				B6E198902C070CE400444790 /* SpeechAI */,
@@ -480,6 +503,8 @@
 				B630BE982C0EFD5B00F093FA /* FirebaseAuth */,
 				B62D59192C10989100EAA5BA /* GoogleSignIn */,
 				B62D591B2C10989100EAA5BA /* GoogleSignInSwift */,
+				B680CF842C12E31200D1D6F3 /* FirebaseFirestore */,
+				B680CF862C12E31200D1D6F3 /* FirebaseFirestoreSwift */,
 			);
 			productName = SingAppo;
 			productReference = B6E198302C0607FF00444790 /* SingAppo.app */;
@@ -563,6 +588,7 @@
 				B6E198812C065B8600444790 /* ButtonViewModifier.swift in Sources */,
 				B6E198952C070D5E00444790 /* VoiceModels.swift in Sources */,
 				B6E198702C0649CA00444790 /* HomeView.swift in Sources */,
+				B680CF8A2C12E7D300D1D6F3 /* ProfileView.swift in Sources */,
 				B6ED6B042C07B48000F4BAEC /* NextBusFormatter.swift in Sources */,
 				B6E198922C070CF200444790 /* SpeechAIView.swift in Sources */,
 				B68085D02C07300300A4CD91 /* KeyConstants.swift in Sources */,
@@ -905,6 +931,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B6ED6B092C0E33BF00F4BAEC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		B680CF842C12E31200D1D6F3 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B6ED6B092C0E33BF00F4BAEC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		B680CF862C12E31200D1D6F3 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B6ED6B092C0E33BF00F4BAEC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 		B6E198432C0608B700444790 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
