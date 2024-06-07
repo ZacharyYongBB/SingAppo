@@ -21,12 +21,14 @@ struct RootView: View {
         ZStack {
             if !showSignInView {
                 TabView(selection: $selectedTab) {
-                    HomeView(showSignInView: $showSignInView)
-                        .tabItem {
-                            Image(systemName: "house.fill")
-                            Text("Home")
-                        }
-                        .tag(0)
+                    RouterView { _ in
+                        HomeView(showSignInView: $showSignInView)
+                    }
+                    .tabItem {
+                        Image(systemName: "house.fill")
+                        Text("Home")
+                    }
+                    .tag(0)
                     ProfileView()
                         .tabItem {
                             Image(systemName: "person.fill")
@@ -34,6 +36,7 @@ struct RootView: View {
                         }
                         .tag(1)
                 }
+                
             }
         }
         .onAppear {

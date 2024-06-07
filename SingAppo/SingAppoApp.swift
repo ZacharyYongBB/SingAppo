@@ -16,9 +16,7 @@ struct SingAppoApp: App {
     
     var body: some Scene {
         WindowGroup {
-            RouterView { _ in
-                RootView()
-            }
+            RootView()
         }
     }
     

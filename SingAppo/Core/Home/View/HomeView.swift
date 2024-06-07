@@ -86,6 +86,7 @@ struct HomeView: View {
                         Image(systemName: "gear")
                         Text("Settings")
                     }
+                    .font(.headline)
                 }
             }
         }
