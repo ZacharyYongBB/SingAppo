@@ -16,6 +16,17 @@ import SwiftUI
         self.user = try await UserManager.shared.getUser(userId: authDataRes.uid)
     }
     
+    @MainActor
+    func togglePremiumStatus() async throws {
+        guard let user else { return }
+        let currentPremiumStatus = user.isPremium ?? false
+        
+        Task {
+            try await UserManager.shared.updateUserPremiumStatus(userId: user.userId, isPremium: !currentPremiumStatus)
+            self.user = try await UserManager.shared.getUser(userId: user.userId)
+        }
+    }
+    
 }
 
 struct ProfileView: View {
@@ -30,10 +41,19 @@ struct ProfileView: View {
                     Text("User ID: \(user.userId)")
                     
                     if let isAnonymous = user.isAnonymous {
-                        Text("Is Anonymous: \(user.isAnonymous?.description ?? "")")
+                        Text("Is Anonymous: \(isAnonymous.description)")
+                    }
+                    Button {
+                        Task {
+                            try? await vm.togglePremiumStatus()
+                        }
+                    } label: {
+                        Text("User is premium: \(user.isPremium ?? false)")
                     }
                     
                 }
+                
+                
             }
             .onAppear {
                 Task {
