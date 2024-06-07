@@ -28,6 +28,7 @@
 		B680CF852C12E31200D1D6F3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B680CF842C12E31200D1D6F3 /* FirebaseFirestore */; };
 		B680CF872C12E31200D1D6F3 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B680CF862C12E31200D1D6F3 /* FirebaseFirestoreSwift */; };
 		B680CF8A2C12E7D300D1D6F3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B680CF892C12E7D300D1D6F3 /* ProfileView.swift */; };
+		B680CF8E2C12F06400D1D6F3 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B680CF8D2C12F06400D1D6F3 /* UserManager.swift */; };
 		B6A7E9B92C122FA7007883BB /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A7E9B82C122FA7007883BB /* AuthenticationViewModel.swift */; };
 		B6E198342C0607FF00444790 /* SingAppoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198332C0607FF00444790 /* SingAppoApp.swift */; };
 		B6E198382C06080100444790 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E198372C06080100444790 /* Assets.xcassets */; };
@@ -82,6 +83,7 @@
 		B65DE69C2C07A52600B9D2A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B68085CF2C07300300A4CD91 /* KeyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyConstants.swift; sourceTree = "<group>"; };
 		B680CF892C12E7D300D1D6F3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		B680CF8D2C12F06400D1D6F3 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		B6A7E9B82C122FA7007883BB /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		B6E198302C0607FF00444790 /* SingAppo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SingAppo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E198332C0607FF00444790 /* SingAppoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingAppoApp.swift; sourceTree = "<group>"; };
@@ -240,6 +242,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B680CF8C2C12F02B00D1D6F3 /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Firestore;
+			sourceTree = "<group>";
+		};
 		B6E198272C0607FF00444790 = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +275,7 @@
 				B6E198332C0607FF00444790 /* SingAppoApp.swift */,
 				B6E1984E2C06092000444790 /* Shared */,
 				B6E198592C060CED00444790 /* Root */,
+				B680CF8C2C12F02B00D1D6F3 /* Firestore */,
 				B6E198582C060CC900444790 /* Core */,
 				B6E198572C060CB300444790 /* Managers */,
 				B6E198562C060CA200444790 /* Extensions */,
@@ -317,6 +327,7 @@
 				B6E1985C2C060DF900444790 /* NetworkConnection */,
 				B6E198622C0611DF00444790 /* KeychainManager.swift */,
 				B62D59112C0F092900EAA5BA /* AuthenticationManager.swift */,
+				B680CF8D2C12F06400D1D6F3 /* UserManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -575,6 +586,7 @@
 				B6A7E9B92C122FA7007883BB /* AuthenticationViewModel.swift in Sources */,
 				B6E198992C070DFD00444790 /* SpeechAIViewModel.swift in Sources */,
 				B630BEA22C0F00AF00F093FA /* SignInEmailViewModel.swift in Sources */,
+				B680CF8E2C12F06400D1D6F3 /* UserManager.swift in Sources */,
 				B6E1987D2C06579200444790 /* SettingsView.swift in Sources */,
 				B6E1986D2C0616B700444790 /* SgPoolsViewModel.swift in Sources */,
 				B6E1985E2C060E0D00444790 /* NetworkConnectionManager.swift in Sources */,

@@ -29,7 +29,7 @@ struct RootView: View {
                         Text("Home")
                     }
                     .tag(0)
-                    ProfileView()
+                    ProfileView(showSignInView: $showSignInView)
                         .tabItem {
                             Image(systemName: "person.fill")
                             Text("Profile")
