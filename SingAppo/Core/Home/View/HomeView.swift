@@ -12,30 +12,52 @@ struct HomeView: View {
     @Environment(\.router) var router
     @Binding var showSignInView: Bool
     @State private var vm = HomeViewModel()
-    @State private var listItems: [(String, AnyView, Bool)] = [
-        ("SG Pools", AnyView(SgPoolsView()), true),
-//        ("Bluetooth Scanner", AnyView(BluetoothView()), true),
-        ("Ask AI", AnyView(SpeechAIView()), true),
-        ("Bus Arrival", AnyView(BusArrivalView()), true),
-    ]
+    //    @State private var listItems: [(String, AnyView, Bool)] = [
+    //        ("SG Pools", AnyView(SgPoolsView()), true),
+    //        ("Bluetooth Scanner", AnyView(BluetoothView()), true),
+    //        ("Ask AI", AnyView(SpeechAIView()), true),
+    //        ("Bus Arrival", AnyView(BusArrivalView()), true),
+    //    ]
     
     var body: some View {
+        //        List {
+        //            ForEach(0..<listItems.count, id: \.self) { index in
+        //                // .2 is the bool in the tuple if true = checked
+        //                if listItems[index].2 {
+        //                    Button(listItems[index].0) {
+        //                        router.showScreen(.push) { _ in
+        //                            listItems[index].1
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //        }
         List {
-            ForEach(0..<listItems.count, id: \.self) { index in
-                // .2 is the bool in the tuple if true = checked
-                if listItems[index].2 {
-                    Button(listItems[index].0) {
-                        router.showScreen(.push) { _ in
-                            listItems[index].1
-                        }
-                    }
+            Button("SG Pools") {
+                router.showScreen(.push) { _ in
+                    AnyView(SgPoolsView())
+                }
+            }
+            Button("Bluetooth Scanner") {
+                router.showScreen(.push) { _ in
+                    AnyView(BluetoothView())
+                }
+            }
+            Button("Ask AI") {
+                router.showScreen(.push) { _ in
+                    AnyView(SpeechAIView())
+                }
+            }
+            Button("Bus Arrival") {
+                router.showScreen(.push) { _ in
+                    AnyView(BusArrivalView())
                 }
             }
         }
         .navigationTitle("What do you want")
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
-                Button("Log Out") {
+                Button {
                     Task {
                         do {
                             try vm.logOut()
@@ -45,18 +67,25 @@ struct HomeView: View {
                             print(error)
                         }
                     }
+                } label: {
+                    HStack {
+                        Text("Log Out")
+                    }
                 }
             }
             ToolbarItem(placement: .topBarTrailing) {
-                HStack {
-                    Button(action: {
-                        router.showScreen(.push) { _ in
-                            SettingsView(listItems: $listItems, showSignInView: $showSignInView)
-                        }
-                    }, label: {
+                Button {
+                    router.showScreen(.push) { _ in
+                        SettingsView(
+                            showSignInView: $showSignInView
+                            // ,listItems: $listItems
+                        )
+                    }
+                } label: {
+                    HStack {
                         Image(systemName: "gear")
                         Text("Settings")
-                    })
+                    }
                 }
             }
         }

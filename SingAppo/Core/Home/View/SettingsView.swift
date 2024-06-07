@@ -12,7 +12,7 @@ struct SettingsView: View {
     
     @Environment(\.router) var router
     
-    @Binding var listItems: [(String, AnyView, Bool)]
+//    @Binding var listItems: [(String, AnyView, Bool)]
     @Binding var showSignInView: Bool
     @State private var vm = SettingsViewModel()
     @State private var updateEmailField = ""
@@ -58,14 +58,14 @@ struct SettingsView: View {
                 } label: {
                     Text("Delete Account")
                 }
-                ForEach(0..<listItems.count, id: \.self) { index in
-                    Toggle(isOn: Binding(
-                        get: { listItems[index].2 },
-                        set: { listItems[index].2 = $0 }
-                    )) {
-                        Text(listItems[index].0)
-                    }
-                }
+//                ForEach(0..<listItems.count, id: \.self) { index in
+//                    Toggle(isOn: Binding(
+//                        get: { listItems[index].2 },
+//                        set: { listItems[index].2 = $0 }
+//                    )) {
+//                        Text(listItems[index].0)
+//                    }
+//                }
                 if vm.authUser?.isAnonymous == true {
                     anonymousSection
                 }
