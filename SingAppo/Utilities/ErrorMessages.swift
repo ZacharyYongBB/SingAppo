@@ -16,4 +16,7 @@ enum ErrorMessage: String, Error {
     case noEmailFound = "User email cant be retrieved"
     case invalidUser = "The user is not Authenticated"
     case unableToFindTopVC = "Top View Controller not found"
+    case errorEncoding = "Error encoding"
+    case errorDecoding = "Error decoding"
+
 }

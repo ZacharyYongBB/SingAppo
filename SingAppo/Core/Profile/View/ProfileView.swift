@@ -27,12 +27,53 @@ import SwiftUI
         }
     }
     
+    func addUserPreference(text: String) {
+        guard let user else { return }
+        
+        Task {
+            try await UserManager.shared.addUserPreference(userId: user.userId, preference: text)
+            self.user = try await UserManager.shared.getUser(userId: user.userId)
+        }
+    }
+    
+    func removeUserPreference(text: String) {
+        guard let user else { return }
+        
+        Task {
+            try await UserManager.shared.removeUserPreference(userId: user.userId, preference: text)
+            self.user = try await UserManager.shared.getUser(userId: user.userId)
+        }
+    }
+    
+    func addFavouriteMovie() {
+        guard let user else { return }
+        let movie = Movie(id: "1", title: "Hello World Movie", isPopular: true)
+        Task {
+            try await UserManager.shared.addFavouriteMovie(userId: user.userId, movie: movie)
+            self.user = try await UserManager.shared.getUser(userId: user.userId)
+        }
+    }
+    
+    func removeFavouriteMovie() {
+        guard let user else { return }
+        Task {
+            try await UserManager.shared.removeFavouriteMovie(userId: user.userId)
+            self.user = try await UserManager.shared.getUser(userId: user.userId)
+        }
+    }
+    
+    
 }
 
 struct ProfileView: View {
     
     @State private var vm = ProfileViewModel()
     @Binding var showSignInView: Bool
+    
+    let preferenceOptions: [String] = ["Sports", "Movies", "Books", "Games", "Travel"]
+    private func preferenceIsSelected(text: String) -> Bool {
+        vm.user?.preferences?.contains(text) == true
+    }
     
     var body: some View {
         NavigationStack {
@@ -49,6 +90,36 @@ struct ProfileView: View {
                         }
                     } label: {
                         Text("User is premium: \(user.isPremium ?? false)")
+                    }
+                    
+                    VStack {
+                        LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))]) {
+                            ForEach(preferenceOptions, id: \.self) { pref in
+                                Button(pref) {
+                                    if preferenceIsSelected(text: pref) {
+                                        vm.removeUserPreference(text: pref)
+                                    } else {
+                                        vm.addUserPreference(text: pref)
+                                    }
+                                }
+                                .font(.headline)
+                                .buttonStyle(.borderedProminent)
+                                .tint(preferenceIsSelected(text: pref) ? .green : .red)
+                            }
+                        }
+                        
+                        Text("User preferences: \((user.preferences ?? []).joined(separator: ", "))")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    
+                    Button {
+                        if user.favouriteMovie == nil {
+                            vm.addFavouriteMovie()
+                        } else {
+                            vm.removeFavouriteMovie()
+                        }
+                    } label: {
+                        Text("Favourite Movie: \(user.favouriteMovie?.title ?? "")")
                     }
                     
                 }
@@ -79,9 +150,15 @@ struct ProfileView: View {
         
     }
 }
+//
+//#Preview {
+//    NavigationStack {
+//        ProfileView(showSignInView: .constant(false))
+//    }
+//}
 
 #Preview {
     NavigationStack {
-        ProfileView(showSignInView: .constant(false))
+        RootView()
     }
 }
