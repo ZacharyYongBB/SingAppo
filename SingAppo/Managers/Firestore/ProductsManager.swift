@@ -45,12 +45,40 @@ final class ProductsManager {
         try productDocument(productId: String(product.id)).setData(from: product, merge: false)
     }
     
-    func getProduct(productId: String) async throws -> Product {
+    private func getProduct(productId: String) async throws -> Product {
         try await productDocument(productId: productId).getDocument(as: Product.self)
     }
     
     func getAllProducts() async throws -> [Product] {
-        try await productsCollection.getDocuments(as: Product.self)
+        try await productsCollection
+            .getDocuments(as: Product.self)
+    }
+    
+    private func getAllProductsSortedByPrice(desc: Bool) async throws -> [Product] {
+        try await productsCollection.order(by: Product.CodingKeys.price.rawValue, descending: desc).getDocuments(as: Product.self)
+    }
+    
+    private func getAllProductsForCategory(category: String ) async throws -> [Product] {
+        try await productsCollection.whereField(Product.CodingKeys.category.rawValue, isEqualTo: category).getDocuments(as: Product.self)
+    }
+    
+    private func getAllProductsByPriceAndCategory(desc: Bool, category: String) async throws -> [Product] {
+        try await productsCollection
+            .whereField(Product.CodingKeys.category.rawValue, isEqualTo: category)
+            .order(by: Product.CodingKeys.price.rawValue, descending: desc)
+            .getDocuments(as: Product.self)
+    }
+    
+    func getAllProducts(priceDesc desc: Bool?,forCategory category: String?) async throws -> [Product] {
+        if let desc, let category {
+            return try await getAllProductsByPriceAndCategory(desc: desc, category: category)
+        } else if let desc {
+            return try await getAllProductsSortedByPrice(desc: desc)
+        } else if let category {
+            return try await getAllProductsForCategory(category: category)
+        }
+        
+        return try await getAllProducts()
     }
 }
 
