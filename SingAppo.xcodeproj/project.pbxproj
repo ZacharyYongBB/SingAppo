@@ -29,6 +29,10 @@
 		B680CF872C12E31200D1D6F3 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B680CF862C12E31200D1D6F3 /* FirebaseFirestoreSwift */; };
 		B680CF8A2C12E7D300D1D6F3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B680CF892C12E7D300D1D6F3 /* ProfileView.swift */; };
 		B680CF8E2C12F06400D1D6F3 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B680CF8D2C12F06400D1D6F3 /* UserManager.swift */; };
+		B69364F62C16DCC60055E740 /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69364F52C16DCC60055E740 /* ProductsView.swift */; };
+		B69364FA2C16DD5B0055E740 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69364F92C16DD5B0055E740 /* ProductModel.swift */; };
+		B69364FD2C16F2040055E740 /* ProductsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69364FC2C16F2040055E740 /* ProductsManager.swift */; };
+		B69365002C16FA780055E740 /* ProductCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69364FF2C16FA780055E740 /* ProductCellView.swift */; };
 		B6A7E9B92C122FA7007883BB /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A7E9B82C122FA7007883BB /* AuthenticationViewModel.swift */; };
 		B6E198342C0607FF00444790 /* SingAppoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E198332C0607FF00444790 /* SingAppoApp.swift */; };
 		B6E198382C06080100444790 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E198372C06080100444790 /* Assets.xcassets */; };
@@ -84,6 +88,10 @@
 		B68085CF2C07300300A4CD91 /* KeyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyConstants.swift; sourceTree = "<group>"; };
 		B680CF892C12E7D300D1D6F3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		B680CF8D2C12F06400D1D6F3 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		B69364F52C16DCC60055E740 /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
+		B69364F92C16DD5B0055E740 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		B69364FC2C16F2040055E740 /* ProductsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsManager.swift; sourceTree = "<group>"; };
+		B69364FF2C16FA780055E740 /* ProductCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellView.swift; sourceTree = "<group>"; };
 		B6A7E9B82C122FA7007883BB /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		B6E198302C0607FF00444790 /* SingAppo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SingAppo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E198332C0607FF00444790 /* SingAppoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingAppoApp.swift; sourceTree = "<group>"; };
@@ -249,6 +257,49 @@
 			path = Firestore;
 			sourceTree = "<group>";
 		};
+		B69364F42C16DCA60055E740 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B69364F82C16DD4E0055E740 /* Model */,
+				B69364F72C16DD460055E740 /* View */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		B69364F72C16DD460055E740 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B69364FE2C16FA620055E740 /* Subviews */,
+				B69364F52C16DCC60055E740 /* ProductsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B69364F82C16DD4E0055E740 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B69364F92C16DD5B0055E740 /* ProductModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B69364FB2C16F1E60055E740 /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+				B680CF8D2C12F06400D1D6F3 /* UserManager.swift */,
+				B69364FC2C16F2040055E740 /* ProductsManager.swift */,
+			);
+			path = Firestore;
+			sourceTree = "<group>";
+		};
+		B69364FE2C16FA620055E740 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				B69364FF2C16FA780055E740 /* ProductCellView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		B6E198272C0607FF00444790 = {
 			isa = PBXGroup;
 			children = (
@@ -324,10 +375,10 @@
 		B6E198572C060CB300444790 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				B69364FB2C16F1E60055E740 /* Firestore */,
 				B6E1985C2C060DF900444790 /* NetworkConnection */,
 				B6E198622C0611DF00444790 /* KeychainManager.swift */,
 				B62D59112C0F092900EAA5BA /* AuthenticationManager.swift */,
-				B680CF8D2C12F06400D1D6F3 /* UserManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -335,6 +386,7 @@
 		B6E198582C060CC900444790 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B69364F42C16DCA60055E740 /* Products */,
 				B680CF882C12E7CA00D1D6F3 /* Profile */,
 				B630BE9A2C0EFE8900F093FA /* Authentication */,
 				B65DE68F2C07914300B9D2A8 /* BusArrival */,
@@ -587,11 +639,15 @@
 				B6E198992C070DFD00444790 /* SpeechAIViewModel.swift in Sources */,
 				B630BEA22C0F00AF00F093FA /* SignInEmailViewModel.swift in Sources */,
 				B680CF8E2C12F06400D1D6F3 /* UserManager.swift in Sources */,
+				B69364F62C16DCC60055E740 /* ProductsView.swift in Sources */,
 				B6E1987D2C06579200444790 /* SettingsView.swift in Sources */,
 				B6E1986D2C0616B700444790 /* SgPoolsViewModel.swift in Sources */,
+				B69364FD2C16F2040055E740 /* ProductsManager.swift in Sources */,
 				B6E1985E2C060E0D00444790 /* NetworkConnectionManager.swift in Sources */,
 				B62D59102C0F064700EAA5BA /* TextFieldViewModifier.swift in Sources */,
+				B69364FA2C16DD5B0055E740 /* ProductModel.swift in Sources */,
 				B6E198502C06092E00444790 /* ImageLoaderView.swift in Sources */,
+				B69365002C16FA780055E740 /* ProductCellView.swift in Sources */,
 				B630BE9E2C0EFEB000F093FA /* AuthenticationView.swift in Sources */,
 				B62D59272C11B83A00EAA5BA /* SignInAppleHelper.swift in Sources */,
 				B6E198692C06144F00444790 /* SgPoolsView.swift in Sources */,

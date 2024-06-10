@@ -20,23 +20,23 @@ struct RootView: View {
         
         ZStack {
             if !showSignInView {
-                TabView(selection: $selectedTab) {
-                    RouterView { _ in
-                        HomeView(showSignInView: $showSignInView)
-                    }
-                    .tabItem {
-                        Image(systemName: "house.fill")
-                        Text("Home")
-                    }
-                    .tag(0)
-                    ProfileView(showSignInView: $showSignInView)
-                        .tabItem {
-                            Image(systemName: "person.fill")
-                            Text("Profile")
-                        }
-                        .tag(1)
-                }
-                
+//                TabView(selection: $selectedTab) {
+//                    RouterView { _ in
+//                        HomeView(showSignInView: $showSignInView)
+//                    }
+//                    .tabItem {
+//                        Image(systemName: "house.fill")
+//                        Text("Home")
+//                    }
+//                    .tag(0)
+//                    ProfileView(showSignInView: $showSignInView)
+//                        .tabItem {
+//                            Image(systemName: "person.fill")
+//                            Text("Profile")
+//                        }
+//                        .tag(1)
+//                }
+                ProductsView()
             }
         }
         .onAppear {
