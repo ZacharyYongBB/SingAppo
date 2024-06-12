@@ -21,6 +21,7 @@ struct ProductCellView: View {
                 Text(product.title ?? "No title")
                     .font(.headline)
                     .foregroundStyle(.primary)
+                    .padding(.trailing, 30)
                 Text("Price: " + String(product.price ?? 0))
                 Text("Rating: " + String(product.rating ?? 0))
                 Text("Category: " + (product.category ?? "Uncategorized"))
@@ -33,5 +34,5 @@ struct ProductCellView: View {
 }
 
 #Preview {
-    ProductCellView(product: Product(id: 1, title: "123", description: "123", price: 1.2, discountPercentage: 1.2, rating: 1.23, stock: 1, brand: "123", category: "123", thumbnail: "123", images: []))
+    ProductCellView(product: Product(id: 1, title: "121231231231231233", description: "123", price: 1.2, discountPercentage: 1.2, rating: 1.23, stock: 1, brand: "123", category: "123", thumbnail: "123", images: []))
 }

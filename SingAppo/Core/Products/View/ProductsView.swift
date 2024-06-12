@@ -85,6 +85,16 @@ final class ProductsViewModel: ObservableObject {
         }
     }
     
+    func addUserWishlistProduct(productId: Int) {
+        Task {
+            let authDataResult = try AuthenticationManager.shared.getAuthenticatedUser()
+            try await UserManager.shared.addUserWishlistProduct(
+                userId: authDataResult.uid,
+                productId: productId
+            )
+        }
+    }
+    
     //    func getProductsByRating() {
     //        Task {
     ////            let newProducts = try await ProductsManager.shared.getProductsByRating(count: 3, lastRating: self.products.last?.rating)
@@ -102,13 +112,21 @@ struct ProductsView: View {
     var body: some View {
         List {
             Text("Total Number of products: " + String(vm.productsCount ?? 0))
-            .font(.headline)
+                .font(.headline)
             //            Button("Fetch more") {
             //                vm.getProductsByRating()
             //            }
             
             ForEach(vm.products) { product in
-                ProductCellView(product: product)
+                ZStack(alignment: .topTrailing) {
+                    ProductCellView(product: product)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                    Image(systemName: "star")
+                        .padding(10)
+                        .onTapGesture {
+                            vm.addUserWishlistProduct(productId: product.id)
+                        }
+                }
                 
                 if product == vm.products.last {
                     ProgressView()

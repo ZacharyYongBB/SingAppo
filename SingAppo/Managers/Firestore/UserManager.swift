@@ -54,7 +54,7 @@ struct DBUser: Codable {
     //        self.isPremium = isPremium
     //        self.preferences = preferences
     //        self.favouriteMovie = favouriteMovie
-
+    
     //    }
     
     //    func togglePremiumStatus() -> DBUser {
@@ -117,23 +117,31 @@ final class UserManager {
     static let shared = UserManager()
     private init() { }
     
-    private let userCollection = Firestore.firestore().collection("users")
+    private let userCollection: CollectionReference = Firestore.firestore().collection("users")
     
     private func userDocument(userId: String) -> DocumentReference {
         userCollection.document(userId)
     }
     
-        private let encoder: Firestore.Encoder = {
-            let encoder = Firestore.Encoder()
-//            encoder.keyEncodingStrategy = .convertToSnakeCase
-            return encoder
-        }()
+    private func userWishlistProductCollection(userId: String) -> CollectionReference {
+        userDocument(userId: userId).collection("wishlist_products")
+    }
     
-        private let decoder: Firestore.Decoder = {
-            let decoder = Firestore.Decoder()
-//            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            return decoder
-        }()
+    private func userWishlistProductDocument(userId: String, wishlistProductId: String) -> DocumentReference {
+        userWishlistProductCollection(userId: userId).document(wishlistProductId)
+    }
+    
+    private let encoder: Firestore.Encoder = {
+        let encoder = Firestore.Encoder()
+        //            encoder.keyEncodingStrategy = .convertToSnakeCase
+        return encoder
+    }()
+    
+    private let decoder: Firestore.Decoder = {
+        let decoder = Firestore.Decoder()
+        //            decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return decoder
+    }()
     
     func createNewUser(user: DBUser) async throws {
         try userDocument(userId: user.userId).setData(from: user, merge: false)
@@ -221,4 +229,55 @@ final class UserManager {
         ]
         try await userDocument(userId: userId).updateData(data as [AnyHashable : Any])
     }
+    
+    func addUserWishlistProduct(userId: String, productId: Int) async throws {
+        
+        let document = userWishlistProductCollection(userId: userId).document()
+        let documentId = document.documentID
+        let data: [String: Any] = [
+            UserWishlistProduct.CodingKeys.id.rawValue : documentId,
+            UserWishlistProduct.CodingKeys.productId.rawValue : productId,
+            UserWishlistProduct.CodingKeys.dateCreated.rawValue : Timestamp()
+        ]
+        
+        try await document.setData(data, merge: false)
+        
+    }
+    
+    func removeUserWishlistProduct(userId: String, wishlistProductId: String) async throws {
+        try await userWishlistProductDocument(userId: userId, wishlistProductId: wishlistProductId).delete()
+    }
+    
+    func getAllUserWishlistProducts(userId: String) async throws -> [UserWishlistProduct] {
+        try await userWishlistProductCollection(userId: userId).getDocuments(as: UserWishlistProduct.self)
+    }
+    
+}
+
+struct UserWishlistProduct: Codable {
+    let id: String
+    let productId: Int
+    let dateCreated: Date
+    
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case productId = "product_id"
+        case dateCreated = "date_created"
+    }
+    
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(String.self, forKey: .id)
+        self.productId = try container.decode(Int.self, forKey: .productId)
+        self.dateCreated = try container.decode(Date.self, forKey: .dateCreated)
+    }
+    
+    func encode(to encoder: any Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.id, forKey: .id)
+        try container.encode(self.productId, forKey: .productId)
+        try container.encode(self.dateCreated, forKey: .dateCreated)
+    }
+    
 }
