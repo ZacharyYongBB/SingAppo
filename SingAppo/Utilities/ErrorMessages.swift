@@ -18,5 +18,6 @@ enum ErrorMessage: String, Error {
     case unableToFindTopVC = "Top View Controller not found"
     case errorEncoding = "Error encoding"
     case errorDecoding = "Error decoding"
+    case noDocument = "Document not found!"
 
 }

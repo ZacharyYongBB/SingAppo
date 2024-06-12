@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 @MainActor
 final class ProductsViewModel: ObservableObject {
@@ -13,6 +14,8 @@ final class ProductsViewModel: ObservableObject {
     @Published private(set) var products: [Product] = []
     @Published var selectedFilter: FilterOptions? = nil
     @Published var selectedCategory: CategoryOption? = nil
+    private var lastDocument: DocumentSnapshot? = nil
+    @Published var productsCount: Int? = nil
     
     //    func getAllProducts() async throws {
     //        self.products = try await ProductsManager.shared.getAllProducts()
@@ -37,15 +40,9 @@ final class ProductsViewModel: ObservableObject {
     
     func filterSelected(option: FilterOptions) async throws {
         self.selectedFilter = option
+        self.products = []
+        self.lastDocument = nil
         self.getProducts()
-        //        switch option {
-        //        case .noFilter:
-        //            self.products = try await ProductsManager.shared.getAllProducts()
-        //        case .priceHigh:
-        //            self.products = try await ProductsManager.shared.getAllProductsSortedByPrice(desc: true)
-        //        case .priceLow:
-        //            self.products = try await ProductsManager.shared.getAllProductsSortedByPrice(desc: false)
-        //        }
     }
     
     enum CategoryOption: String, CaseIterable {
@@ -67,23 +64,35 @@ final class ProductsViewModel: ObservableObject {
     
     func categorySelected(option: CategoryOption) async throws {
         self.selectedCategory = option
+        self.products = []
+        self.lastDocument = nil
         self.getProducts()
-        //        switch option {
-        //        case .noCategory:
-        //            self.products = try await ProductsManager.shared.getAllProducts()
-        //        case .smartphones, .laptops, .fragrances, .furniture, .beauty, .groceries:
-        //            self.products = try await ProductsManager.shared.getAllProductsForCatefory(category: option.rawValue)
-        //        }
-        
-        
     }
     
     func getProducts() {
         Task {
-            self.products = try await ProductsManager.shared.getAllProducts(priceDesc: selectedFilter?.priceDescending, forCategory: selectedCategory?.categoryKey)
+            let (newProducts, lastDoc) = try await ProductsManager.shared.getAllProducts(priceDesc: selectedFilter?.priceDescending, forCategory: selectedCategory?.categoryKey, count: 5, lastDoc: lastDocument)
+            self.products.append(contentsOf: newProducts)
+            if let lastDoc {
+                self.lastDocument = lastDoc
+            }
         }
-        
     }
+    
+    func getProductsCount() {
+        Task {
+            self.productsCount = try? await ProductsManager.shared.getAllProductsCount()
+        }
+    }
+    
+    //    func getProductsByRating() {
+    //        Task {
+    ////            let newProducts = try await ProductsManager.shared.getProductsByRating(count: 3, lastRating: self.products.last?.rating)
+    //            let (newProducts, lastDoc) = try await ProductsManager.shared.getProductsByRating(count: 3, lastDoc: lastDocument)
+    //            self.products.append(contentsOf: newProducts)
+    //            self.lastDocument = lastDoc
+    //        }
+    //    }
 }
 
 struct ProductsView: View {
@@ -92,8 +101,22 @@ struct ProductsView: View {
     
     var body: some View {
         List {
+            Text("Total Number of products: " + String(vm.productsCount ?? 0))
+            .font(.headline)
+            //            Button("Fetch more") {
+            //                vm.getProductsByRating()
+            //            }
+            
             ForEach(vm.products) { product in
                 ProductCellView(product: product)
+                
+                if product == vm.products.last {
+                    ProgressView()
+                        .onAppear {
+                            print("fethcing more data")
+                            vm.getProducts()
+                        }
+                }
             }
         }
         .navigationTitle("Products")
@@ -124,6 +147,7 @@ struct ProductsView: View {
         .onAppear {
             Task {
                 vm.getProducts()
+                vm.getProductsCount()
             }
         }
     }
