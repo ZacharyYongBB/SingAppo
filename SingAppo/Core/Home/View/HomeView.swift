@@ -35,22 +35,27 @@ struct HomeView: View {
         List {
             Button("SG Pools") {
                 router.showScreen(.push) { _ in
-                    AnyView(SgPoolsView())
+                    SgPoolsView()
                 }
             }
             Button("Bluetooth Scanner") {
                 router.showScreen(.push) { _ in
-                    AnyView(BluetoothView())
+                    BluetoothView()
                 }
             }
             Button("Ask AI") {
                 router.showScreen(.push) { _ in
-                    AnyView(SpeechAIView())
+                    SpeechAIView()
                 }
             }
             Button("Bus Arrival") {
                 router.showScreen(.push) { _ in
-                    AnyView(BusArrivalView())
+                    BusArrivalView()
+                }
+            }
+            Button("Products") {
+                router.showScreen(.push) { _ in
+                    ProductsView()
                 }
             }
         }

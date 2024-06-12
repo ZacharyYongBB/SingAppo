@@ -6,40 +6,18 @@
 //
 
 import SwiftUI
-import SwiftfulRouting
 
 struct RootView: View {
     
     @StateObject private var networkStatus = NetworkStatus()
-    @Environment(\.router) var router
     @State private var showSignInView: Bool = false
-    @State var selectedTab: Int = 0
     
     
     var body: some View {
         
         ZStack {
             if !showSignInView {
-                //                TabView(selection: $selectedTab) {
-                //                    RouterView { _ in
-                //                        HomeView(showSignInView: $showSignInView)
-                //                    }
-                //                    .tabItem {
-                //                        Image(systemName: "house.fill")
-                //                        Text("Home")
-                //                    }
-                //                    .tag(0)
-                //                    ProfileView(showSignInView: $showSignInView)
-                //                        .tabItem {
-                //                            Image(systemName: "person.fill")
-                //                            Text("Profile")
-                //                        }
-                //                        .tag(1)
-                //                }
-                RouterView { _ in
-                    ProductsView()
-                    
-                }
+                TabbarView(showSignInView: $showSignInView)
             }
         }
         .onAppear {

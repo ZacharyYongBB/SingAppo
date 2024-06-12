@@ -24,6 +24,8 @@
 		B65DE6942C07916400B9D2A8 /* BusArrivalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DE6932C07916400B9D2A8 /* BusArrivalView.swift */; };
 		B65DE6962C07916C00B9D2A8 /* BusArrivalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DE6952C07916C00B9D2A8 /* BusArrivalViewModel.swift */; };
 		B65DE69B2C0797A900B9D2A8 /* BusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DE69A2C0797A900B9D2A8 /* BusModel.swift */; };
+		B669C0382C19A4380003B3CC /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669C0372C19A4380003B3CC /* TabbarView.swift */; };
+		B669C03B2C19A7050003B3CC /* WishlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669C03A2C19A7050003B3CC /* WishlistView.swift */; };
 		B68085D02C07300300A4CD91 /* KeyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68085CF2C07300300A4CD91 /* KeyConstants.swift */; };
 		B680CF852C12E31200D1D6F3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B680CF842C12E31200D1D6F3 /* FirebaseFirestore */; };
 		B680CF872C12E31200D1D6F3 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B680CF862C12E31200D1D6F3 /* FirebaseFirestoreSwift */; };
@@ -85,6 +87,8 @@
 		B65DE6952C07916C00B9D2A8 /* BusArrivalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusArrivalViewModel.swift; sourceTree = "<group>"; };
 		B65DE69A2C0797A900B9D2A8 /* BusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusModel.swift; sourceTree = "<group>"; };
 		B65DE69C2C07A52600B9D2A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B669C0372C19A4380003B3CC /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
+		B669C03A2C19A7050003B3CC /* WishlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistView.swift; sourceTree = "<group>"; };
 		B68085CF2C07300300A4CD91 /* KeyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyConstants.swift; sourceTree = "<group>"; };
 		B680CF892C12E7D300D1D6F3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		B680CF8D2C12F06400D1D6F3 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
@@ -232,6 +236,22 @@
 				B65DE69A2C0797A900B9D2A8 /* BusModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B669C0362C19A34D0003B3CC /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				B669C0372C19A4380003B3CC /* TabbarView.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		B669C0392C19A6E70003B3CC /* Wishlist */ = {
+			isa = PBXGroup;
+			children = (
+				B669C03A2C19A7050003B3CC /* WishlistView.swift */,
+			);
+			path = Wishlist;
 			sourceTree = "<group>";
 		};
 		B680CF882C12E7CA00D1D6F3 /* Profile */ = {
@@ -386,6 +406,8 @@
 		B6E198582C060CC900444790 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B669C0362C19A34D0003B3CC /* Tabbar */,
+				B669C0392C19A6E70003B3CC /* Wishlist */,
 				B69364F42C16DCA60055E740 /* Products */,
 				B680CF882C12E7CA00D1D6F3 /* Profile */,
 				B630BE9A2C0EFE8900F093FA /* Authentication */,
@@ -648,6 +670,7 @@
 				B69364FA2C16DD5B0055E740 /* ProductModel.swift in Sources */,
 				B6E198502C06092E00444790 /* ImageLoaderView.swift in Sources */,
 				B69365002C16FA780055E740 /* ProductCellView.swift in Sources */,
+				B669C03B2C19A7050003B3CC /* WishlistView.swift in Sources */,
 				B630BE9E2C0EFEB000F093FA /* AuthenticationView.swift in Sources */,
 				B62D59272C11B83A00EAA5BA /* SignInAppleHelper.swift in Sources */,
 				B6E198692C06144F00444790 /* SgPoolsView.swift in Sources */,
@@ -673,6 +696,7 @@
 				B6E1987B2C064D3100444790 /* BluetoothViewModel.swift in Sources */,
 				B65DE6962C07916C00B9D2A8 /* BusArrivalViewModel.swift in Sources */,
 				B6E198632C0611DF00444790 /* KeychainManager.swift in Sources */,
+				B669C0382C19A4380003B3CC /* TabbarView.swift in Sources */,
 				B6E198782C064D1400444790 /* BluetoothView.swift in Sources */,
 				B62D59122C0F092900EAA5BA /* AuthenticationManager.swift in Sources */,
 				B62D59252C10B0F700EAA5BA /* AuthProviderOption.swift in Sources */,
