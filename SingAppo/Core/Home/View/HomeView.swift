@@ -58,6 +58,11 @@ struct HomeView: View {
                     ProductsView()
                 }
             }
+            Button("Wishlist") {
+                router.showScreen(.push) { _ in
+                    WishlistView()
+                }
+            }
         }
         .navigationTitle("What do you want")
         .toolbar {

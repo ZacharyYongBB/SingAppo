@@ -7,12 +7,42 @@
 
 import SwiftUI
 
+@MainActor
+final class WishlistViewModel: ObservableObject {
+    
+    @Published private(set) var products: [Product] = []
+
+    
+    func getWishlist() {
+        
+    }
+    
+}
+
 struct WishlistView: View {
+    
+    @StateObject private var vm = WishlistViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            ForEach(vm.products) { product in
+                ProductCellView(product: product)
+                    .contextMenu {
+                        Button("Add to Wishlist") {
+                            
+                        }
+                    }
+            }
+        }
+        .navigationTitle("Wishlist")
+        .onAppear {
+            vm.getWishlist()
+        }
     }
 }
 
 #Preview {
-    WishlistView()
+    NavigationStack {
+        WishlistView()
+    }
 }

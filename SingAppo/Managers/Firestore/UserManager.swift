@@ -79,9 +79,9 @@ struct DBUser: Codable {
     enum CodingKeys: String, CodingKey {
         case userId = "user_id"
         case isAnonymous = "is_anonymous"
-        case dateCreated = "email"
-        case email = "photo_url"
-        case photoUrl = "date_created"
+        case dateCreated = "date_created"
+        case email = "email"
+        case photoUrl = "photo_url"
         case isPremium = "is_premium"
         case preferences = "preferences"
         case favouriteMovie = "favourite_movie"
