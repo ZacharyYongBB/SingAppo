@@ -143,6 +143,8 @@ final class UserManager {
         return decoder
     }()
     
+    private var userWishlistProductsListener: ListenerRegistration? = nil
+    
     func createNewUser(user: DBUser) async throws {
         try userDocument(userId: user.userId).setData(from: user, merge: false)
     }
@@ -252,6 +254,62 @@ final class UserManager {
         try await userWishlistProductCollection(userId: userId).getDocuments(as: UserWishlistProduct.self)
     }
     
+    func addListenerUserWishlistProducts(userId: String, completion: @escaping (_ products: [UserWishlistProduct]) -> Void) {
+        self.userWishlistProductsListener = userWishlistProductCollection(userId: userId).addSnapshotListener { querySnapshot, error in
+            guard let documents = querySnapshot?.documents else {
+                return
+            }
+            
+            let products: [UserWishlistProduct] = documents.compactMap { documentSnapshot in
+                return try? documentSnapshot.data(as: UserWishlistProduct.self)
+            }
+            completion(products)
+            
+            querySnapshot?.documentChanges.forEach { diff in
+                if (diff.type == .added) {
+                    print("New products: \(diff.document.data())")
+                }
+                if (diff.type == .modified) {
+                    print("Modified products: \(diff.document.data())")
+                }
+                if (diff.type == .removed) {
+                    print("Removed products: \(diff.document.data())")
+                }
+            }
+        }
+    }
+    
+    //    func addListenerUserWishlistProducts(userId: String) -> AnyPublisher<[UserWishlistProduct], any Error> {
+    //        
+    //        let publisher = PassthroughSubject<[UserWishlistProduct], Error>()
+    //        
+    //        self.userWishlistProductsListener = userWishlistProductCollection(userId: userId).addSnapshotListener { querySnapshot, error in
+    //            guard let documents = querySnapshot?.documents else {
+    //                return
+    //            }
+    //            
+    //            let products: [UserWishlistProduct] = documents.compactMap { documentSnapshot in
+    //                return try? documentSnapshot.data(as: UserWishlistProduct.self)
+    //            }
+    //            publisher.send(products)
+    //        }
+    //        
+    //        return publisher.eraseToAnyPublisher()
+    //    }
+    
+    func addListenerUserWishlistProducts(userId: String) -> AnyPublisher<[UserWishlistProduct], any Error> {
+        let (publisher, listener) = userWishlistProductCollection(userId: userId)
+            .addSnapshotListener(as: UserWishlistProduct.self)
+        
+        self.userWishlistProductsListener = listener
+        return publisher
+    }
+    
+    func removeListenerForAllUserFavouriteProduct() {
+        self.userWishlistProductsListener?.remove()
+    }
+    
 }
+import Combine
 
 

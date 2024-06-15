@@ -24,8 +24,12 @@ struct WishlistView: View {
             }
         }
         .navigationTitle("Wishlist")
-        .onAppear {
-            vm.getWishlist()
+        //        .onAppear {
+        //            vm.getWishlist()
+        //
+        //        }
+        .onFirstAppear {
+            vm.addListenerForWishlist()
         }
     }
 }
