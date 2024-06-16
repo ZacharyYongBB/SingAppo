@@ -32,6 +32,7 @@
 		B669C0462C1DBFB00003B3CC /* OnFirstAppearViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669C0452C1DBFB00003B3CC /* OnFirstAppearViewModifier.swift */; };
 		B669C0482C1DD3000003B3CC /* Query+EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669C0472C1DD3000003B3CC /* Query+EXT.swift */; };
 		B669C04B2C1DD39B0003B3CC /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669C04A2C1DD39B0003B3CC /* ProductsViewModel.swift */; };
+		B669C04E2C1F89BE0003B3CC /* SecurityRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669C04D2C1F89BE0003B3CC /* SecurityRules.swift */; };
 		B68085D02C07300300A4CD91 /* KeyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68085CF2C07300300A4CD91 /* KeyConstants.swift */; };
 		B680CF852C12E31200D1D6F3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B680CF842C12E31200D1D6F3 /* FirebaseFirestore */; };
 		B680CF872C12E31200D1D6F3 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B680CF862C12E31200D1D6F3 /* FirebaseFirestoreSwift */; };
@@ -101,6 +102,7 @@
 		B669C0452C1DBFB00003B3CC /* OnFirstAppearViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnFirstAppearViewModifier.swift; sourceTree = "<group>"; };
 		B669C0472C1DD3000003B3CC /* Query+EXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Query+EXT.swift"; sourceTree = "<group>"; };
 		B669C04A2C1DD39B0003B3CC /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
+		B669C04D2C1F89BE0003B3CC /* SecurityRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityRules.swift; sourceTree = "<group>"; };
 		B68085CF2C07300300A4CD91 /* KeyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyConstants.swift; sourceTree = "<group>"; };
 		B680CF892C12E7D300D1D6F3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		B680CF8D2C12F06400D1D6F3 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
@@ -300,6 +302,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		B669C04C2C1F89A60003B3CC /* SecurityRules */ = {
+			isa = PBXGroup;
+			children = (
+				B669C04D2C1F89BE0003B3CC /* SecurityRules.swift */,
+			);
+			path = SecurityRules;
+			sourceTree = "<group>";
+		};
 		B680CF882C12E7CA00D1D6F3 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,6 +407,7 @@
 				B680CF8C2C12F02B00D1D6F3 /* Firestore */,
 				B6E198582C060CC900444790 /* Core */,
 				B6E198572C060CB300444790 /* Managers */,
+				B669C04C2C1F89A60003B3CC /* SecurityRules */,
 				B6E198562C060CA200444790 /* Extensions */,
 				B6E198532C060C5400444790 /* Utilities */,
 				B6E198372C06080100444790 /* Assets.xcassets */,
@@ -720,6 +731,7 @@
 				B62D59102C0F064700EAA5BA /* TextFieldViewModifier.swift in Sources */,
 				B69364FA2C16DD5B0055E740 /* ProductModel.swift in Sources */,
 				B6E198502C06092E00444790 /* ImageLoaderView.swift in Sources */,
+				B669C04E2C1F89BE0003B3CC /* SecurityRules.swift in Sources */,
 				B669C03D2C1A24C40003B3CC /* ProductCellViewBuilder.swift in Sources */,
 				B69365002C16FA780055E740 /* ProductCellView.swift in Sources */,
 				B669C03B2C19A7050003B3CC /* WishlistView.swift in Sources */,

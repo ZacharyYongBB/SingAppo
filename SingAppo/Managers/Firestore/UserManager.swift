@@ -196,7 +196,8 @@ final class UserManager {
     
     func updateUserPremiumStatus(userId: String, isPremium: Bool) async throws {
         let data: [String: Any] = [
-            DBUser.CodingKeys.isPremium.rawValue: isPremium
+            DBUser.CodingKeys.isPremium.rawValue: isPremium,
+            //            "custom_key" : "123"
         ]
         try await userDocument(userId: userId).updateData(data)
     }
@@ -280,20 +281,20 @@ final class UserManager {
     }
     
     //    func addListenerUserWishlistProducts(userId: String) -> AnyPublisher<[UserWishlistProduct], any Error> {
-    //        
+    //
     //        let publisher = PassthroughSubject<[UserWishlistProduct], Error>()
-    //        
+    //
     //        self.userWishlistProductsListener = userWishlistProductCollection(userId: userId).addSnapshotListener { querySnapshot, error in
     //            guard let documents = querySnapshot?.documents else {
     //                return
     //            }
-    //            
+    //
     //            let products: [UserWishlistProduct] = documents.compactMap { documentSnapshot in
     //                return try? documentSnapshot.data(as: UserWishlistProduct.self)
     //            }
     //            publisher.send(products)
     //        }
-    //        
+    //
     //        return publisher.eraseToAnyPublisher()
     //    }
     
