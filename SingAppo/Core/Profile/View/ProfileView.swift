@@ -6,69 +6,14 @@
 //
 
 import SwiftUI
-
-@Observable class ProfileViewModel {
-    
-    private(set) var user: DBUser? = nil
-    
-    func loadCurrentUser() async throws {
-        let authDataRes = try AuthenticationManager.shared.getAuthenticatedUser()
-        self.user = try await UserManager.shared.getUser(userId: authDataRes.uid)
-    }
-    
-    @MainActor
-    func togglePremiumStatus() async throws {
-        guard let user else { return }
-        let currentPremiumStatus = user.isPremium ?? false
-        
-        Task {
-            try await UserManager.shared.updateUserPremiumStatus(userId: user.userId, isPremium: !currentPremiumStatus)
-            self.user = try await UserManager.shared.getUser(userId: user.userId)
-        }
-    }
-    
-    func addUserPreference(text: String) {
-        guard let user else { return }
-        
-        Task {
-            try await UserManager.shared.addUserPreference(userId: user.userId, preference: text)
-            self.user = try await UserManager.shared.getUser(userId: user.userId)
-        }
-    }
-    
-    func removeUserPreference(text: String) {
-        guard let user else { return }
-        
-        Task {
-            try await UserManager.shared.removeUserPreference(userId: user.userId, preference: text)
-            self.user = try await UserManager.shared.getUser(userId: user.userId)
-        }
-    }
-    
-    func addFavouriteMovie() {
-        guard let user else { return }
-        let movie = Movie(id: "1", title: "Hello World Movie", isPopular: true)
-        Task {
-            try await UserManager.shared.addFavouriteMovie(userId: user.userId, movie: movie)
-            self.user = try await UserManager.shared.getUser(userId: user.userId)
-        }
-    }
-    
-    func removeFavouriteMovie() {
-        guard let user else { return }
-        Task {
-            try await UserManager.shared.removeFavouriteMovie(userId: user.userId)
-            self.user = try await UserManager.shared.getUser(userId: user.userId)
-        }
-    }
-    
-    
-}
+import PhotosUI
 
 struct ProfileView: View {
     
     @State private var vm = ProfileViewModel()
     @Binding var showSignInView: Bool
+    @State private var selectedItem: PhotosPickerItem? = nil
+    @State private var profilePicUrl: URL? = nil
     
     let preferenceOptions: [String] = ["Sports", "Movies", "Books", "Games", "Travel"]
     private func preferenceIsSelected(text: String) -> Bool {
@@ -122,15 +67,48 @@ struct ProfileView: View {
                         Text("Favourite Movie: \(user.favouriteMovie?.title ?? "")")
                     }
                     
+                    PhotosPicker(
+                        selection: $selectedItem,
+                        matching: .images,
+                        photoLibrary: .shared()) {
+                            Text("Select Photo")
+                        }
+                }
+                
+                if let urlString = vm.user?.profileImagePathUrl, let url = URL(string: urlString)
+                {
+                    HStack {
+                        AsyncImage(url: url) { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 150, height: 150)
+                        } placeholder: {
+                            ProgressView()
+                                .frame(width: 150, height: 150)
+                        }
+                        ImageLoaderView(urlString: urlString, resizeMode: .fill)
+                    }
+                    
+                    if vm.user?.profileImagePath != nil {
+                        Button("Delete Image") {
+                            vm.deleteProfileImage()
+                        }
+                    }
+                    
                 }
                 
                 
             }
-            .onAppear {
-                Task {
-                    try? await vm.loadCurrentUser()
-                }
+            .task {
+                try? await vm.loadCurrentUser()
+                
             }
+            .onChange(of: selectedItem, { _, newValue in
+                if let newValue {
+                    vm.saveProfileImage(item: newValue)
+                }
+            })
             .navigationTitle("Profile")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
