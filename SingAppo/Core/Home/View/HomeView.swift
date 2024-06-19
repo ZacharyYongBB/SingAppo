@@ -68,6 +68,11 @@ struct HomeView: View {
                     CrashView()
                 }
             }
+            Button("Performance View") {
+                router.showScreen(.push) { _ in
+                    PerformanceView()
+                }
+            }
         }
         .navigationTitle("What do you want")
         .toolbar {
