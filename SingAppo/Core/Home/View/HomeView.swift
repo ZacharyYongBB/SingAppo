@@ -63,6 +63,11 @@ struct HomeView: View {
                     WishlistView()
                 }
             }
+            Button("Crash the app") {
+                router.showScreen(.push) { _ in
+                    CrashView()
+                }
+            }
         }
         .navigationTitle("What do you want")
         .toolbar {
